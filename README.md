@@ -1,4 +1,4 @@
-#Welcome to Sculpt Studio
+# Welcome to Sculpt Studio
 
 This is my 4th milestone project for Code Institute, while being a school project i aim to deploy this as a livesite.
 
