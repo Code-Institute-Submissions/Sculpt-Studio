@@ -83,6 +83,12 @@ LOGIN_REDIRECT_URL = '/' #redirect url after logging in
 
 ROOT_URLCONF = 'sculpt_studio.urls'
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
