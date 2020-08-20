@@ -55,7 +55,7 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_email' %}">My Profile</a>
+                    <a class="nav-link" href="">My Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_email' %}">Change E-mail</a>
@@ -68,7 +68,7 @@
                     <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Create Account </a>
+                    <a class="nav-link" href="{% url 'account_signup' %}">Sign up</a>
                 </li>
                 {% endif %}
             </ul>

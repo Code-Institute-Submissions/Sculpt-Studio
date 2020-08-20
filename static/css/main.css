@@ -2,3 +2,13 @@ hr {
     border-top: 5px solid black;
     margin-top: 0;
 }
+
+
+/* @media settings */
+
+@media only screen and (max-width: 786px) {
+    .navbar-brand {
+        height: 75%;
+        width: 75%;
+    }
+}
