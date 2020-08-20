@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'home'
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,23 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 
 ]
+
+SITE_ID = 1 #required together with 'django.contrib.sites'
+
+"""
+Since by default allauth will send confirmation emails to any new accounts.
+We need to temporarily log those emails to the console so we can get the confirmation links.
+"""
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
+ACCOUNT_EMAIL_REQUIRED = True #email required to register
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory' #mandatory to verify your email address
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True #need to input email twice to make sure no typos 
+ACCOUNT_USERNAME_MIN_LENGTH = 4 #minimum username length
+LOGIN_URL = '/accounts/login' #specified login url
+LOGIN_REDIRECT_URL = '/' #redirect url after logging in 
+
 
 ROOT_URLCONF = 'sculpt_studio.urls'
 
