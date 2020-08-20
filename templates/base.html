@@ -33,7 +33,9 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'home' %}">Sculpt Studio</a>
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="/media/sculpt_logo.png" alt="sculpt studio logo" height="20%" width="20%">
+      </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,9 +45,18 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Programs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Partners</a>
                 </li>
                 {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_email' %}">My Profile</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_email' %}">Change E-mail</a>
                 </li>
