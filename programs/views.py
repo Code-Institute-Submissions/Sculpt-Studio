@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Programs
 
 # Create your views here.
 
@@ -6,4 +7,11 @@ def programs(request):
     """
     render programs.html
     """
-    return render(request, 'programs/programs.html')
+    programs = Programs.objects.all()
+
+    context = {
+        'programs': programs,
+    }
+
+    
+    return render(request, 'programs/programs.html', context)

@@ -11,7 +11,7 @@ class Programs(models.Model):
         verbose_name_plural = 'Programs'
 
     name = models.CharField(max_length=100)
-    type = models.DecimalField(max_digits=2, decimal_places=0)
+    type = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
