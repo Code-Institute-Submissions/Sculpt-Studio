@@ -1,26 +1,29 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
 <div class="row">
     <aside class="col-lg-6 col-md-6" align="center">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Healthy body, healthy mind</h5>
-                <p class="card-text">I am here to guide you through your journey to become the best version of yourself!</p>
+                <h5 class="card-title">What is Sculpt Studio?</h5>
+                <p class="card-text">Sculpt Studio is a dream of mine and my passion project that aims to provide everyone with world class training programs that are not only extremely effective but are also fun to do.</p>
+                <h6 class="card-title">Who am I</h6>
+                <p>I am certified personal trainer, have been a profession dancer and i really love healthy living and fitness. A real passion of mine is pilates and as i could not find any suitable online programs for myself i decided that i can create
+                    the best online pilates program out there. <br> So dont hesitate to have a look at the programs available or get in contact with me and let's be healthy together!
+                </p>
                 <a href="{% url 'programs' %}" class="card-link">Checkout our programs</a>
             </div>
         </div>
     </aside>
-</div>
-<div class="row justify-content-end">
     <section class="col-lg-6 col-md-6" align="center">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Your trainer</h3>
-                <p>Niina Tepp, creator and owner of Sculpt Studio</p>
+                <h3 class="card-title">Niina Tepp</h3>
+                <p>Fitness fanatic, trainer, creator and owner of Sculpt Studio</p>
+                <img src="/media/about_pic.png" alt="site owner picture" height="50%" width="50%">
             </div>
-            <img src="..." alt="...">
         </div>
     </section>
 </div>
+
 
 {% endblock %}
