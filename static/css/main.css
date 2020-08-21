@@ -2,10 +2,11 @@
 
 * {
     font-family: 'Noto Serif JP', serif;
+    color: rgb(51, 18, 118);
 }
 
 hr {
-    border-top: 5px solid black;
+    border-top: 5px solid rgb(51, 18, 118);
     margin-top: 0;
 }
 
@@ -21,6 +22,31 @@ body {
 
 .footer-content {
     margin-bottom: 10px;
+}
+
+.fab {
+    color: rgb(239, 64, 41);
+    transition: 0.5s;
+}
+
+a {
+    color: rgb(239, 64, 41);
+    transition: 0.5s;
+}
+
+a:hover {
+    color: rgb(51, 18, 118) !important;
+    text-decoration: underline !important;
+}
+
+nav .navbar-nav li a {
+    color: rgb(239, 64, 41) !important;
+    transition: 0.5s;
+}
+
+nav .navbar-nav li a:hover {
+    color: rgb(51, 18, 118) !important;
+    text-decoration: underline;
 }
 
 
