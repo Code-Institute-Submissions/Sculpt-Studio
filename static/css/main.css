@@ -1,3 +1,7 @@
+* {
+    font-family: 'Noto Serif JP', serif;
+}
+
 hr {
     border-top: 5px solid black;
     margin-top: 0;
@@ -5,6 +9,16 @@ hr {
 
 body {
     background-color: rgb(248, 246, 246);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    margin-bottom: 10px;
 }
 
 
