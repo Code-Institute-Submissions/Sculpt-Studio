@@ -51,6 +51,9 @@
                     <a class="nav-link" href="#">Programs</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#">Testimonials</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Partners</a>
                 </li>
                 {% if user.is_authenticated %}
@@ -76,13 +79,31 @@
     </nav>
     <hr>
 
+
+
     {% block header %} 
     {% endblock %}
     
     {% block content %} 
     {% endblock %}
-
-
+    
+    <footer class="footer">
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col col-sm-6 col-md-6 footer-content">            
+                    <a href=""><i class="fab fa-instagram-square fa-2x"></i></a>                   
+                    <a href=""><i class="fab fa-facebook-square fa-2x"></i></a>             
+                    <a href=""><i class="fab fa-linkedin fa-2x"></i></a>               
+                </div>
+                <div class="col col-sm-6 col-md-6 footer-content">
+                    <p align="right">
+                        MTDesign 2020
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
