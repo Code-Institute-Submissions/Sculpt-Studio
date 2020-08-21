@@ -13,5 +13,18 @@ def programs(request):
         'programs': programs,
     }
 
-    
+
     return render(request, 'programs/programs.html', context)
+
+
+def program_details(request, program_id):
+    """
+    renders details about specific fitness program
+    """
+    programs = get_object_or_404(Programs, pk=program_id)
+
+    context = {
+        'programs': programs
+    }
+
+    return render(request, 'programs/program_details.html', context)
