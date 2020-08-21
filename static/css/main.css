@@ -15,16 +15,6 @@ body {
     background-color: rgb(248, 246, 246);
 }
 
-.footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer-content {
-    margin-bottom: 10px;
-}
-
 .fab {
     color: rgb(239, 64, 41);
     transition: 0.5s;
