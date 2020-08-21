@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'home'
+    'home',
+    'programs'
 ]
 
 MIDDLEWARE = [
@@ -66,10 +67,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1 #required together with 'django.contrib.sites'
 
-"""
-Since by default allauth will send confirmation emails to any new accounts.
-We need to temporarily log those emails to the console so we can get the confirmation links.
-"""
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
