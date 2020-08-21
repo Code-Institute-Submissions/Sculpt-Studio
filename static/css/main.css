@@ -1,3 +1,5 @@
+/* styles that affect across pages and base.html */
+
 * {
     font-family: 'Noto Serif JP', serif;
 }
@@ -19,6 +21,14 @@ body {
 
 .footer-content {
     margin-bottom: 10px;
+}
+
+
+/* homepage specific*/
+
+.card {
+    background-color: rgb(248, 246, 246);
+    border: none;
 }
 
 
