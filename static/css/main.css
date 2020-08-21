@@ -59,6 +59,14 @@ nav .navbar-nav li a:hover {
 }
 
 
+/* programs page specific */
+
+.programs {
+    border: 1px solid rgb(51, 18, 118);
+    margin: 20px;
+}
+
+
 /* @media settings */
 
 @media only screen and (max-width: 786px) {
