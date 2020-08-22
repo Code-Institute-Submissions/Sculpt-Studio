@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Programs
 from .forms import ProgramForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 
@@ -39,6 +40,11 @@ def edit_program(request, program_id):
     """
     programs = get_object_or_404(Programs, pk=program_id)
 
+    if not request.user.is_superuser:
+        messages.error(request, f'You must be and administrative user to use this function')
+        return redirect(reverse('home'))
+
+
     if request.method == 'POST':
         form = ProgramForm(request.POST, instance=programs)
         if form.is_valid:
@@ -60,7 +66,14 @@ def delete_program(request, program_id):
     """
     delete specific program
     """
+
     programs = get_object_or_404(Programs, pk=program_id)
+    
+    if not request.user.is_superuser:
+        messages.error(request, f'You must be and administrative user to use this function')
+        return redirect(reverse('home'))
+
+
     programs.delete() 
 
     return redirect(reverse('programs'))
