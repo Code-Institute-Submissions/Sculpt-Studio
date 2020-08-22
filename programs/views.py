@@ -53,3 +53,14 @@ def edit_program(request, program_id):
     }
 
     return render(request, 'programs/edit_program.html', context)
+
+
+@login_required
+def delete_program(request, program_id):
+    """
+    delete specific program
+    """
+    programs = get_object_or_404(Programs, pk=program_id)
+    programs.delete() 
+
+    return redirect(reverse('programs'))

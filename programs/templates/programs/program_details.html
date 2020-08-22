@@ -11,7 +11,7 @@
         <p class="card-text">Price: {{ programs.price }}€</p>
         {% if request.user.is_authenticated and request.user.is_superuser %}
         <a href="{% url 'edit_program' programs.id %}" class="btn btn-danger">Edit</a>
-        <a href="#" class="btn btn-danger">Delete</a>
+        <a href="{% url 'delete_program' program.id %}" class="btn btn-danger">Delete</a>
         <a href="{% url 'programs' %}" class="btn btn-dark btn-primary">Back</a>
         <a href="#" class="btn btn-success btn-primary">Purchase</a>
         {% else %}
