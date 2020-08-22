@@ -56,7 +56,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Partners</a>
                 </li>
-                {% if user.is_authenticated %}
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_program' %}">Add Programs</a>
+                    </li>
+                    {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="">My Profile</a>
                 </li>

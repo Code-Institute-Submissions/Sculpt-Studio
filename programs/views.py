@@ -68,7 +68,7 @@ def delete_program(request, program_id):
     """
 
     programs = get_object_or_404(Programs, pk=program_id)
-    
+
     if not request.user.is_superuser:
         messages.error(request, f'You must be and administrative user to use this function')
         return redirect(reverse('home'))
@@ -77,3 +77,30 @@ def delete_program(request, program_id):
     programs.delete() 
 
     return redirect(reverse('programs'))
+
+
+
+@login_required
+def add_program(request):
+    """
+    allow admin users to add new programs program
+    """
+
+    if not request.user.is_superuser:
+        messages.error(request, f'You must be and administrative user to use this function')
+        return redirect(reverse('home'))
+
+
+    if request.method == 'POST':
+        form = ProgramForm(request.POST)
+        if form.is_valid:
+            program = form.save()
+            return redirect(reverse('program_details', args=[program.id]))
+    else:
+        form = ProgramForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'programs/add_programs.html', context)
