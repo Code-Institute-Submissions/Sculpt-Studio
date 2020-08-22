@@ -78,13 +78,13 @@
         </div>
     </nav>
     <hr>
-    <div class="row">
+    <div class="toast">
         {% if messages %}
-        <ul class="messages">
+        <div class="toast-body messages">
             {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
             {% endfor %}
-        </ul>
+        </div>
         {% endif %}
     </div>
 
@@ -93,6 +93,7 @@
     
     {% block content %} 
     {% endblock %}
+    
     
 </body>
 
