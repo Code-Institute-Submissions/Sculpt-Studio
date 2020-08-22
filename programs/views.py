@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Programs
 from .forms import ProgramForm
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -31,6 +32,7 @@ def program_details(request, program_id):
     return render(request, 'programs/program_details.html', context)
 
 
+@login_required
 def edit_program(request, program_id):
     """
     renders edit pagefor specific program
