@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-8">
-          <h3 align="center">Welcome to your account management page!</h3>
+          <h3 align="center">Welcome {{ user.get_short_name }}, to your account!</h3>
     </div>
 </div>
 <nav class="nav nav-pills nav-fill">
@@ -23,6 +23,18 @@
   {% endif %}
 </nav>
 <hr>
+
+<div class="row justify-content-center">
+    <div class="col-8">
+          <ul>
+              <li> Username : {{ user.get_username }}</li>
+              <li> Full Name: {{ user.get_full_name }}</li>
+              <li> Email : {{ user.email }}</li> 
+              <li> Address: {{ user.address }}</li> 
+              <li> Country: {{ user.country }}</li> 
+          </ul>
+    </div>
+</div>
 
 
 
