@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,reverse
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm, UserManagementForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 @login_required
@@ -14,7 +15,7 @@ def account(request):
             user_form.save()
             return redirect(reverse('account'))
     else:
-        user_form = UserForm(instance=request.user)
+        user_form = UserForm(instance=request.user)∏
 
     context = {
         'user_form': user_form
@@ -25,7 +26,7 @@ def account(request):
 
 @login_required
 def user_management(request):
-    """render my_profile.html"""
+    """user management view to allow managing users in template view"""
     if request.user.is_superuser:
         if request.method == 'POST':
             form = UserManagementForm(request.POST, instance=request.user)
