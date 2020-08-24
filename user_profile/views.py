@@ -7,15 +7,15 @@ from django.contrib.auth.models import User
 
 @login_required
 def account(request):
-    """render my_profile.html"""
-
+    """render my_profile.html and handle profile update """
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         if user_form.is_valid():
             user_form.save()
+            messages.success(request, f'Profile has been updated!')
             return redirect(reverse('account'))
     else:
-        user_form = UserForm(instance=request.user)∏
+        user_form = UserForm(instance=request.user)
 
     context = {
         'user_form': user_form
