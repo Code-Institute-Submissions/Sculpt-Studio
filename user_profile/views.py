@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect,reverse
 from django.contrib.auth.decorators import login_required
-from .forms import UserForm
+from .forms import UserForm, UserManagementForm
+from django.contrib import messages
 
-# Create your views here.
 
 @login_required
 def account(request):
@@ -21,3 +21,25 @@ def account(request):
     }
 
     return render(request, 'user_profile/my_account.html', context)
+
+
+@login_required
+def user_management(request):
+    """render my_profile.html"""
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form = UserManagementForm(request.POST, instance=request.user)
+            if form.is_valid():
+                form.save()
+                return redirect(reverse('account'))
+        else:
+            form = UserManagementForm(instance=request.user)
+    else:
+        messages.error(request, f'You must be and administrative user to use this function')
+        return redirect(reverse('home'))
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'user_profile/user_management.html', context)
