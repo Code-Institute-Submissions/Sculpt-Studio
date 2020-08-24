@@ -28,7 +28,7 @@
 
 <div class="row justify-content-center">
     <div class="col-8">
-        <form action="{% url 'account' %}" method="POST">
+        <form action="{% url 'user_management' %}" method="POST">
             {% csrf_token %}
             {{ form | crispy }}
             <button type="submit" class="btn btn-success">Update</button>

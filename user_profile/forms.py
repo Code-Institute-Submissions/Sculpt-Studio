@@ -14,7 +14,7 @@ class UserManagementForm(forms.ModelForm):
     """
     return all fields from django User model for management
     """
-    class Meta:
+    class Meta():
         model = User
         exclude = ('password','groups', 'user_permissions')
         fields = '__all__'
