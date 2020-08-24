@@ -25,24 +25,23 @@
 </nav>
 <hr>
 
-<div class="row justify-content-center">
-    <div class="col-8">
-          <ul>
-              <li> Username : {{ user.get_username }}</li>
-              <li> Full Name: {{ user.get_full_name }}</li>
-              <li> Email : {{ user.email }}</li> 
-              <li> Address: {{ user.address }}</li> 
-              <li> Country: {{ user.country }}</li> 
-          </ul>
-    </div>
-</div>
 
 <div class="row justify-content-center">
     <div class="col-8">
+        <label>Username</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.username }}"> 
+        <label>First Name</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.first_name }}"> 
+        <label>Last Name</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.last_name }}"> 
+        <label>Email</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.email }}"> 
+        <label>Date Joined</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.date_joined }}"> 
         <form action="{% url 'account' %}" method="POST">
             {% csrf_token %}
-            {{ form | crispy }}
-            <button type="submit" class="btn btn-primary">Confirm</button>
+            {{ user_form | crispy }}
+            <button type="submit" class="btn btn-success">Update</button>
         </form>
     </div>
 </div>
