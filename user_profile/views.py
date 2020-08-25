@@ -26,21 +26,28 @@ def account(request):
 
 
 @login_required
-def user_management(request):
+def user_management(request, user_id):
     """user management view to allow managing users in template view"""
-    if request.user.is_superuser:
-        if request.method == 'POST':
-            form = UserManagementForm(request.POST, instance=request.user)
-            if form.is_valid():
-                form.save()
-        else:
-            form = UserManagementForm(instance=request.user)
+    all_users = User.objects.all()
+    profile = get_object_or_404(User, pk=user_id)
+    
+    if not request.user.is_superuser:
+            messages.error(request, f'You must be and administrative user to use this function')
+            return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = UserManagementForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Profile has been updated!')
+            return redirect(reverse('user_management', args=[profile.id]))
     else:
-        messages.error(request, f'You must be and administrative user to use this function')
-        return redirect(reverse('home'))
+        form = UserManagementForm(instance=profile)
 
     context = {
-        'form': form
+        'form': form,
+        'profile': profile,
+        'all_users': all_users
     }
 
     return render(request, 'user_profile/user_management.html', context)

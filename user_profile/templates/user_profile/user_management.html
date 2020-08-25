@@ -16,7 +16,7 @@
   <a class="nav-item nav-link" href="{% url 'programs'%}">Edit Programs</a>
   <a class="nav-item nav-link" href="">Add Partners</a>
   <a class="nav-item nav-link" href="">Edit Partners</a>
-  <a class="nav-item nav-link" href="{% url 'user_management' %}">User Management</a>
+  <a class="nav-item nav-link" href="{% url 'user_management' profile.id  %}">User Management</a>
   {% else %}
   <a class="nav-item nav-link" href="#">My Profile</a>
   <a class="nav-item nav-link" href="{% url 'account_email' %}">Change E-mail</a>
@@ -26,9 +26,14 @@
 </nav>
 <hr>
 
-<div class="row justify-content-center">
+<div class="row justify-content-center">    
     <div class="col-8">
-        <form action="{% url 'user_management' %}" method="POST">
+        {% for user in all_users %}
+        <a href="{% url 'user_management' user.id %}">{{ user.username}}</a>
+        {% endfor %}
+    </div>
+    <div class="col-8">
+        <form action="{% url 'user_management' user.id %}" method="POST">
             {% csrf_token %}
             {{ form | crispy }}
             <button type="submit" class="btn btn-success">Update</button>
