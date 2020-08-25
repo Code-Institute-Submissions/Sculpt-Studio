@@ -9,7 +9,7 @@
 </div>
 <nav class="nav nav-pills nav-fill">
   {% if request.user.is_superuser%}
-  <a class="nav-item nav-link" href="#">My Profile</a>
+  <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
   <a class="nav-item nav-link" href="{% url 'account_email' %}">Change E-mail</a>
   <a class="nav-item nav-link" href="{% url 'add_program'%}">Add Program</a>
   <a class="nav-item nav-link" href="{% url 'programs'%}">Edit Programs</a>
@@ -18,7 +18,6 @@
   <a class="nav-item nav-link" href="{% url 'user_selection'  %}">User Management</a>
   {% else %}
   <a class="nav-item nav-link" href="#">My Profile</a>
-  <a class="nav-item nav-link" href="{% url 'account_email' %}">Change E-mail</a>
   <a class="nav-item nav-link" href="#">My Purchases</a>
   <a class="nav-item nav-link" href="#">Book a Meeting</a>
   {% endif %}
