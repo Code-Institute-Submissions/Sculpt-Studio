@@ -26,9 +26,19 @@ def account(request):
 
 
 @login_required
+def user_selection(request):
+    """get all users to choose by admin for updating"""
+    all_users = User.objects.all()
+
+    context = {
+        'all_users': all_users
+    }
+    return render(request, 'user_profile/user_selection.html', context)
+
+
+@login_required
 def user_management(request, user_id):
     """user management view to allow managing users in template view"""
-    all_users = User.objects.all()
     profile = get_object_or_404(User, pk=user_id)
     
     if not request.user.is_superuser:
@@ -47,7 +57,6 @@ def user_management(request, user_id):
     context = {
         'form': form,
         'profile': profile,
-        'all_users': all_users
     }
 
     return render(request, 'user_profile/user_management.html', context)
