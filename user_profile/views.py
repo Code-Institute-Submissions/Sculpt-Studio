@@ -28,6 +28,9 @@ def account(request):
 @login_required
 def user_selection(request):
     """get all users to choose by admin for updating"""
+    if not request.user.is_superuser:
+            messages.error(request, f'You must be and administrative user to use this function')
+            return redirect(reverse('home'))
     all_users = User.objects.all()
 
     context = {
@@ -50,7 +53,6 @@ def user_management(request, user_id):
         if form.is_valid():
             form.save()
             messages.success(request, f'Profile has been updated!')
-            return redirect(reverse('user_management', args=[profile.id]))
     else:
         form = UserManagementForm(instance=profile)
 
