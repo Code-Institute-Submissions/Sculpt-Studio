@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-8">
@@ -10,12 +9,11 @@
 <nav class="nav nav-pills nav-fill">
   {% if request.user.is_superuser%}
   <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
-  <a class="nav-item nav-link" href="{% url 'account_email' %}">Change E-mail</a>
   <a class="nav-item nav-link" href="{% url 'add_program'%}">Add Program</a>
   <a class="nav-item nav-link" href="{% url 'programs'%}">Edit Programs</a>
   <a class="nav-item nav-link" href="">Add Partners</a>
   <a class="nav-item nav-link" href="">Edit Partners</a>
-  <a class="nav-item nav-link" href="{% url 'user_selection'  %}">User Management</a>
+  <a class="nav-item nav-link" href="{% url 'user_selection' %}">User Management</a>
   {% else %}
   <a class="nav-item nav-link" href="#">My Profile</a>
   <a class="nav-item nav-link" href="#">My Purchases</a>
@@ -24,10 +22,9 @@
 </nav>
 <hr>
 
-<div class="col-8">
-    {% for user in all_users %}
-    <a href="{% url 'user_management' user.id %}">{{ user.username}}</a>
-    {% endfor %}
-</div>
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/madis-tepp/60min" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<!-- Calendly inline widget end -->
 
 {% endblock %}

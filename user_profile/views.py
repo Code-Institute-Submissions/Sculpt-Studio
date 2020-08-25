@@ -53,6 +53,7 @@ def user_management(request, user_id):
         if form.is_valid():
             form.save()
             messages.success(request, f'Profile has been updated!')
+            return redirect(reverse('user_management', args=[profile.id]))
     else:
         form = UserManagementForm(instance=profile)
 
@@ -62,3 +63,10 @@ def user_management(request, user_id):
     }
 
     return render(request, 'user_profile/user_management.html', context)
+
+
+def book_meeting(request):
+    """
+    render book_meeting.html where calendly booking widget is embedded
+    """
+    return render(request,'user_profile/book_meeting.html')
