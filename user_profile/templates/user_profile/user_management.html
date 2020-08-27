@@ -25,7 +25,7 @@
 
 <div class="row justify-content-center">    
     <div class="col-8">
-        <form action="{% url 'user_management' user.id %}" method="POST">
+        <form action="{% url 'user_management' profile.id %}" method="POST">
             {% csrf_token %}
             {{ form | crispy }}
             <a href="{% url 'user_selection' %}"class="btn btn-dark">Back</a>
