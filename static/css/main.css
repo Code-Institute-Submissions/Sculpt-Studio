@@ -49,9 +49,9 @@ nav .navbar-nav li a:hover {
 }
 
 
-/* programs page specific */
+/* card styling across pages */
 
-.programs {
+.cards {
     border: 1px solid rgb(51, 18, 118);
     margin: 20px;
 }

@@ -24,10 +24,24 @@
 </nav>
 <hr>
 
-<div class="col-8">
+
+<div class="row justify-content-center">
     {% for user in all_users %}
-    <a href="{% url 'user_management' user.id %}">{{ user.username}}</a>
+    <div class="col-sm-4 cards">
+        <div class="card">
+            <p class="text-muted mb-2">Username:</p>
+            <p><strong>{{ user.username }}</strong></p>
+            <p class="text-muted mb-2">First name:</p>
+            <p><strong>{{ user.first_name }}</strong></p>
+            <p class="text-muted mb-2">Last name:</p>
+            <p><strong>{{ user.last_name }}</strong></p>
+            <p class="text-muted mb-2">Email:</p>
+            <p><strong>{{ user.email}}</strong></p>
+            <a href="{% url 'user_management' user.id %}" class="btn btn-danger mb-2">Edit User Details</a>
+        </div>
+    </div>
     {% endfor %}
 </div>
+
 
 {% endblock %}
