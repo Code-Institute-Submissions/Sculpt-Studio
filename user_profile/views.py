@@ -53,7 +53,6 @@ def user_management(request, user_id):
         if form.is_valid():
             form.save()
             messages.success(request, f'Profile has been updated!')
-            return redirect(reverse('user_selection'))
     else:
         form = UserManagementForm(instance=profile)
 
