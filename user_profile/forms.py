@@ -19,3 +19,4 @@ class UserManagementForm(forms.ModelForm):
         exclude = ('password','groups', 'user_permissions')
         fields = '__all__'
 
+        

@@ -16,7 +16,7 @@
   <a class="nav-item nav-link" href="">Edit Partners</a>
   <a class="nav-item nav-link" href="{% url 'user_selection' %}">User Management</a>
   {% else %}
-  <a class="nav-item nav-link" href="#">My Profile</a>
+  <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
   <a class="nav-item nav-link" href="#">My Purchases</a>
   <a class="nav-item nav-link" href="{% url 'book_meeting' %}">Book a Meeting</a>
   {% endif %}
@@ -25,6 +25,12 @@
 
 <div class="row justify-content-center">    
     <div class="col-8">
+        <label>Weight (KG)</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ profile.profile.weight }}"> 
+        <label>Height (CM)</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ profile.profile.height }}"> 
+        <label>Users Goal</label>
+        <textarea class="textinput textInput form-control mb-2" readonly>{{ user.profile.goal }}</textarea>
         <form action="{% url 'user_management' profile.id %}" method="POST">
             {% csrf_token %}
             {{ form | crispy }}

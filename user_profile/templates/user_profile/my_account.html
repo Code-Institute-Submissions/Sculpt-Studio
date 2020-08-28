@@ -42,12 +42,20 @@
         <input class="textinput textInput form-control mb-2" readonly value="{{ user.profile.address }}"> 
         <label>Country</label>
         <input class="textinput textInput form-control mb-2" readonly value="{{ user.profile.country }}"> 
-        <p class="mb-4 mt-4 font-weight-bold font-italic">Update address and/or country:</p>
-        <form action="{% url 'account' %}" method="POST">
-            {% csrf_token %}
-            {{ user_form | crispy }}
-            <button type="submit" class="btn btn-success">Update</button>
-        </form>
+        <label>Weight (KG)</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.profile.weight }}"> 
+        <label>Height (CM)</label>
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.profile.height }}"> 
+        <label>My Goal</label>
+        <textarea class="textinput textInput form-control mb-2" readonly>{{ user.profile.goal }}</textarea>
+        <p class="mb-4 mt-4 font-weight-bold font-italic">Update information:</p>
+        <textfield class="textinput textInput form-control mb-2" readonly>
+            <form action="{% url 'account' %}" method="POST">
+                {% csrf_token %}
+                {{ user_form | crispy }}
+                <button type="submit" class="btn btn-success">Update</button>
+            </form>
+        </texfield> 
     </div>
 </div>
 

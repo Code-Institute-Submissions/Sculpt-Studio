@@ -43,7 +43,7 @@ def user_selection(request):
 def user_management(request, user_id):
     """user management view to allow managing users in template view"""
     profile = get_object_or_404(User, pk=user_id)
-    
+
     if not request.user.is_superuser:
             messages.error(request, f'You must be and administrative user to use this function')
             return redirect(reverse('home'))
