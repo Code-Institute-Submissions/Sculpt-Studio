@@ -8,6 +8,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     address = models.CharField(max_length=264, blank=True)
     country = CountryField(blank=True)
+    height  = models.IntegerField(default=0, blank=True)
+    weight  = models.IntegerField(default=0, blank=True)
+    goal = models.TextField(max_length=1024, blank=True)
 
     def __str__(self):
         return self.user.username
