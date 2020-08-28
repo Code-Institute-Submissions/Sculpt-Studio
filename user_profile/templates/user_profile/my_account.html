@@ -8,7 +8,7 @@
     </div>
 </div>
 <nav class="nav nav-pills nav-fill">
-  {% if request.user.is_superuser%}
+  {% if request.user.is_superuser %}
   <a class="nav-item nav-link" href="#">My Profile</a>
   <a class="nav-item nav-link" href="{% url 'add_program'%}">Add Program</a>
   <a class="nav-item nav-link" href="{% url 'programs'%}">Edit Programs</a>
