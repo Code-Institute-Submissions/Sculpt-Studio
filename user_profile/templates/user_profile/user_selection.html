@@ -37,7 +37,7 @@
             <p><strong>{{ user.last_name }}</strong></p>
             <p class="text-muted mb-2">Email:</p>
             <p><strong>{{ user.email}}</strong></p>
-            <a href="{% url 'user_management' user.id %}" class="btn btn-danger mb-2">Edit User Details</a>
+            <a href="{% url 'user_management' user.id %}" class="btn btn-danger mb-2">Edit / View User Details</a>
         </div>
     </div>
     {% endfor %}
