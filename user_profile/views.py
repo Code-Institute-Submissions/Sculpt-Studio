@@ -63,9 +63,12 @@ def user_management(request, user_id):
 
     return render(request, 'user_profile/user_management.html', context)
 
+
 @login_required
 def book_meeting(request):
     """
     render book_meeting.html where calendly booking widget is embedded
     """
     return render(request,'user_profile/book_meeting.html')
+
+
