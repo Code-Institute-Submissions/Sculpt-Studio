@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
-
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form action="{% url 'testimonials' %}" method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <a href="{% url 'testimonials' %}" class="btn btn-dark btn-primary">Back</a>
+            <button type="submit" class="btn btn-primary">Confirm</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
