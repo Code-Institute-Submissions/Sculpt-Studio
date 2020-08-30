@@ -15,7 +15,7 @@ class Profile(models.Model):
     goal = models.TextField(max_length=1024, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
     
 @receiver(post_save, sender=User)

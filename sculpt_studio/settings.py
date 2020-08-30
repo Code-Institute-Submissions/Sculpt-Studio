@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'home',
     'programs',
     'user_profile',
+    'testimonials'
 ]
 
 MIDDLEWARE = [
