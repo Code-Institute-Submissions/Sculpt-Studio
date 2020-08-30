@@ -6,6 +6,18 @@ from .models import Testimonials
 def testimonials(request):
     
     
+    testimonials = Testimonials.objects.all()
+    
+    context = {
+        'testimonials': testimonials
+    }
+
+    return render(request, 'testimonials/testimonials.html', context)
+
+
+def add_testimonials(request):
+    '''form for user to add testimonials'''
+
     if request.method == 'POST':
         form = AddTestimonialsForm(request.POST)
         if form.is_valid:
@@ -17,4 +29,4 @@ def testimonials(request):
         'form': form
     }
 
-    return render(request, 'testimonials/testimonials.html', context)
+    return render(request, 'testimonials/testimonials.html', context) 
