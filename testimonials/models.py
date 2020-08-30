@@ -14,7 +14,7 @@ class Testimonials(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     review = models.TextField(max_length=2064)
-    score = models.IntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(10)])
+    score = models.PositiveIntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(10)])
     date = models.DateField(default=timezone.now)
 
     def __str__(self):
