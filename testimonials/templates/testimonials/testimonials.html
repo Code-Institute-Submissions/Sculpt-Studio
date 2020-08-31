@@ -7,9 +7,9 @@
 <div class="col-sm-4 cards">
     <div class="card">
       <div class="card-body">
-        <p class="card-text">By: <strong>{{ testimonial.user}}</strong></p>
-        <p class="card-text">Program: {{ testimonial.program_id}}</p> 
-        <p class="card-text">Review:<br> {{ testimonial.review }}</p>
+        <p class="card-text"><i>"{{ testimonial.review }}"</i></p>
+        <p class="card-text"><strong>{{ testimonial.user}}</strong></p>
+        <p class="card-text">Reviewed Program: <br>{{ testimonial.program_id}}</p> 
         <p class="card-text">Rating: {{ testimonial.score }}</p>
         <p class="card-text">Review date: {{ testimonial.date }}</p> 
       </div>
