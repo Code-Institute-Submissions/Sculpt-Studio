@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import AddTestimonialsForm
 from .models import Testimonials
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def testimonials(request):
-    
-    
+    """
+    return all testimonial for template
+    """
     testimonials = Testimonials.objects.all()
     
     context = {
@@ -15,6 +18,7 @@ def testimonials(request):
     return render(request, 'testimonials/testimonials.html', context)
 
 
+@login_required
 def add_testimonials(request):
     '''form for user to add testimonials'''
 
@@ -22,6 +26,7 @@ def add_testimonials(request):
         form = AddTestimonialsForm(request.POST)
         if form.is_valid:
             form.save()
+            messages.success(request, 'Your testimonial has been succesfully stored')
     else:
         form = AddTestimonialsForm()
     
