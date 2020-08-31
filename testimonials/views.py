@@ -14,7 +14,7 @@ def testimonials(request):
 
     return render(request, 'testimonials/testimonials.html', context)
 
-"""
+
 def add_testimonials(request):
     '''form for user to add testimonials'''
 
@@ -29,5 +29,5 @@ def add_testimonials(request):
         'form': form
     }
 
-    return render(request, 'testimonials/testimonials.html', context) 
-    """
+    return render(request, 'testimonials/add_testimonials.html', context) 
+
