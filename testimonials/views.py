@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .forms import AddTestimonialsForm
 from .models import Testimonials
 from django.contrib import messages
@@ -27,8 +27,10 @@ def add_testimonials(request):
         if form.is_valid:
             form.save()
             messages.success(request, 'Your review has been succesfully stored')
+            form = AddTestimonialsForm(instance=user)
+            return redirect(reverse('testimonials'))
     else:
-        form = AddTestimonialsForm(instance=user)
+        form = AddTestimonialsForm()
     
     context = {
         'form': form
