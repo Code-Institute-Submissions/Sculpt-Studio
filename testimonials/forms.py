@@ -10,3 +10,4 @@ class AddTestimonialsForm(forms.ModelForm):
     class Meta:
         model = Testimonials
         fields = '__all__'
+        exclude = ['user']

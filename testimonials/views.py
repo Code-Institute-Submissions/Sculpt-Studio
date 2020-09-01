@@ -21,14 +21,14 @@ def testimonials(request):
 @login_required
 def add_testimonials(request):
     '''form for user to add testimonials'''
-
+    user = get_object_or_404(Testimonials, user=request.user)
     if request.method == 'POST':
-        form = AddTestimonialsForm(request.POST)
+        form = AddTestimonialsForm(request.POST, instance=user)
         if form.is_valid:
             form.save()
             messages.success(request, 'Your review has been succesfully stored')
     else:
-        form = AddTestimonialsForm()
+        form = AddTestimonialsForm(instance=user)
     
     context = {
         'form': form
