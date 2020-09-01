@@ -3,7 +3,7 @@ from .forms import AddTestimonialsForm
 from .models import Testimonials
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.models import User
 
 def testimonials(request):
     """
@@ -26,7 +26,7 @@ def add_testimonials(request):
         form = AddTestimonialsForm(request.POST)
         if form.is_valid:
             form.save()
-            messages.success(request, 'Your testimonial has been succesfully stored')
+            messages.success(request, 'Your review has been succesfully stored')
     else:
         form = AddTestimonialsForm()
     
