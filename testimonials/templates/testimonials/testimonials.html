@@ -17,6 +17,9 @@
             <p class="card-text">I purchased {{ testimonial.program_id}}</p> 
             <p class="card-text">Rating: {{ testimonial.score }}</p>
             <p class="card-text">Review date: {{ testimonial.date }}</p> 
+            {% if request.user.is_superuser %}
+            <a class="btn btn-danger btn-primary" href="{% url 'delete_testimonials' testimonial.id %}">Delete</a>
+            {% endif %}
           </div>
         </div>
     </div>

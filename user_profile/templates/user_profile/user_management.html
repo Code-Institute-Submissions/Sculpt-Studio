@@ -31,7 +31,9 @@
         <label>Height (CM)</label>
         <input class="textinput textInput form-control mb-2" readonly value="{{ profile.profile.height }}"> 
         <label>Users Goal</label>
-        <textarea class="textinput textInput form-control mb-2" readonly>{{ user.profile.goal }}</textarea>
+        <textarea class="textinput textInput form-control mb-2" readonly>{{ profile.profile.goal }}</textarea>
+        <label>Review</label>
+        <textarea class="textinput textInput form-control mb-2" readonly>{{ profile.testimonials.review }}</textarea>
         <form action="{% url 'user_management' profile.id %}" method="POST">
             {% csrf_token %}
             {{ form | crispy }}
