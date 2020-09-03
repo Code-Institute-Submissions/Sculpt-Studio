@@ -4,6 +4,7 @@ from .forms import UserForm, UserManagementForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
+from django.db.models import Q
 
 
 @login_required
@@ -31,10 +32,23 @@ def user_selection(request):
     if not request.user.is_superuser:
             messages.error(request, f'You must be and administrative user to use this function')
             return redirect(reverse('home'))
-    all_users = User.objects.all()
+    users = User.objects.all()
+    search = ''
+
+    '''code institute project code and help from stackoverflow used as inspiration in solving below search function'''
+    if 'search' in request.GET:
+        search = request.GET['search']
+        if not search:
+            messages.error(request, f'No valid search criteria entered!')
+            return redirect(reverse('user_selection'))
+
+        results = Q(first_name__icontains=search) | Q(last_name__icontains=search) | Q(username__icontains=search)
+        users = users.filter(results)
+        
 
     context = {
-        'all_users': all_users
+        'users': users,
+        'find_user': search,
     }
     return render(request, 'user_profile/user_selection.html', context)
 
