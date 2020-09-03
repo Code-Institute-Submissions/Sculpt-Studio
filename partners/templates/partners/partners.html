@@ -7,7 +7,7 @@
   <div class="col-sm-4 cards">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{ partner.name }}</h5>
+        <h5 class="card-title"><strong>{{ partner.name }}</strong></h5>
         <p class="card-text">Info:<br> {{ partner.summary }}</p>
         <p class="card-text">Discount: Up to {{ partner.discount }}%</p>
         <p class="card-text">Valid Until: {% if partner.deal_validity %}
@@ -15,6 +15,7 @@
                                           {% else %} 
                                                  Does Not Expire
                                           {% endif %}</p>
+        <a href="{{ partner.link }}" target="_blank" class="btn btn-success">Click Here to Shop</a>
       </div>
     </div>
   </div>
