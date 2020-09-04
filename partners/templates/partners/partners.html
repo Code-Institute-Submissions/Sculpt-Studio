@@ -15,10 +15,14 @@
                                           {% else %} 
                                                  Does Not Expire
                                           {% endif %}</p>
-        <a href="{{ partner.link }}" target="_blank" class="btn btn-success">Click Here to Shop</a>
         {% if request.user.is_authenticated and request.user.is_superuser %}
+        <p class="card-text">Main Contact: {{ partner.main_contact }}</p>
+        <p class="card-text">Main Contact Email: {{ partner.main_contact_email }}</p>
+        <p class="card-text">Main Contact Phone: {{ partner.main_contact_phone }}</p>
         <a href="{% url 'edit_partners' partner.id %}" class="btn btn-danger">Edit</a>
         <a href="{% url 'delete_partners' partner.id %}" class="btn btn-danger">Delete</a>
+        {% else %}
+        <a href="{{ partner.link }}" target="_blank" class="btn btn-success">Click Here to Shop</a>
         {% endif %}
       </div>
     </div>
