@@ -41,3 +41,32 @@ def add_partners(request):
     }
 
     return render(request, 'partners/add_partners.html', context)
+
+
+@login_required
+def edit_partners(request, partner_id):
+    """
+    renders edit page for partners for admin user 
+    to be able to edit / delete partner details
+    """
+    partners = get_object_or_404(Partners, pk=partner_id)
+
+    if not request.user.is_superuser:
+        messages.error(request, f'You must be and administrative user to use this function')
+        return redirect(reverse('partners'))
+
+
+    if request.method == 'POST':
+        form = PartnerForm(request.POST, instance=partners)
+        if form.is_valid:
+            form.save()
+            return redirect(reverse('partners'))
+    else:
+        form = PartnerForm(instance=partners)
+
+    context = {
+        'partners': partners,
+        'form': form
+    }
+
+    return render(request, 'partners/edit_partners.html', context)
