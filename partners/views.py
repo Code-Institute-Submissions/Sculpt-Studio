@@ -70,3 +70,23 @@ def edit_partners(request, partner_id):
     }
 
     return render(request, 'partners/edit_partners.html', context)
+
+
+
+@login_required
+def delete_partners(request, partner_id):
+    """
+    allow admin user to delete specific programs from 
+    template view instead of admin tool
+    """
+
+    partners = get_object_or_404(Partners, pk=partner_id)
+
+    if not request.user.is_superuser:
+        messages.error(request, f'You must be and administrative user to use this function')
+        return redirect(reverse('account'))
+
+
+    partners.delete() 
+
+    return redirect(reverse('partners'))
