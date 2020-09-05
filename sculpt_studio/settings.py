@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     'user_profile',
     'testimonials',
     'partners',
-    'phone_field'
+    'phone_field',
+    'purchase'
+
 ]
 
 MIDDLEWARE = [
