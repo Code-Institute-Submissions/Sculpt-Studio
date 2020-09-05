@@ -9,9 +9,11 @@ class Checkout(models.Model):
     model for checkout page
     '''
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    programs = models.OneToOneField(Programs, on_delete=models.CASCADE)
     billing_address = models.CharField(max_length=256)
     billing_postcode = models.CharField(max_length=15)
     billing_city = models.CharField(max_length=32)
     billing_country = CountryField()
 
-
+    def __str__(self):
+        return self.programs.name
