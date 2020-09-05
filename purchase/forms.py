@@ -5,6 +5,6 @@ from .models import Checkout
 
 class CheckoutForm(forms.ModelForm):
     '''form to user for purchasing of programs'''
-
-    models = Checkout
-    fields = '__all__'
+    class Meta:
+        model = Checkout
+        fields = '__all__'

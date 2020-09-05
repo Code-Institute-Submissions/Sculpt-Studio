@@ -9,5 +9,11 @@ def purchase_checkout(request):
     return purchase checkout page 
     '''
     
-    return render(request, 'purchase/purchase_checkout.html')
+    form = CheckoutForm()
+
+
+    context = {
+        'form': form
+    }
+    return render(request, 'purchase/purchase_checkout.html', context)
 
