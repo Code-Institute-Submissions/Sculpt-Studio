@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'testimonials',
     'partners',
     'phone_field',
-    'purchase'
+    'purchase',
+    'cart'
 
 ]
 
