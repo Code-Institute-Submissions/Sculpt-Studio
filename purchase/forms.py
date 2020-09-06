@@ -8,3 +8,4 @@ class CheckoutForm(forms.ModelForm):
     class Meta:
         model = Checkout
         fields = '__all__'
+        exclude = ['programs', 'profile']

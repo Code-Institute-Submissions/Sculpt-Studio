@@ -3,5 +3,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.purchase_checkout, name='purchase_checkout'),
+    path('<int:program_id>', views.purchase_checkout, name='purchase_checkout'),
 ]
