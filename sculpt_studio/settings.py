@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'partners',
     'phone_field',
     'purchase',
+    'stripe'
 
 
 ]

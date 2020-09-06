@@ -25,6 +25,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- fontawesome js for icons-->
     <script src="https://kit.fontawesome.com/adecd2bab8.js" crossorigin="anonymous"></script>
+    <!--Stripe Js-->
+     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     <title>Sculpt Studio</title>
@@ -93,6 +95,7 @@
     
     {% block additionaljs %}
     {% endblock %}
+    <script src="{% static '/js/stripe.js' %}"></script>
 </body>
 
 </html>

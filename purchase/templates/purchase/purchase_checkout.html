@@ -14,13 +14,23 @@
       <input class="textinput textInput form-control mb-2" readonly value="{{ program.name }}"> 
       <label>Program price:</label>
       <input class="textinput textInput form-control mb-2" readonly value="{{ program.price }}€"> 
-      <form action="" method="POST">
+      <form action="" method="POST" id="payment-form">
           {% csrf_token %}
          {{ form | crispy }}
-         <a href=""class="btn btn-dark">Back</a>
-         <button type="submit" class="btn btn-success">Pay and confirm</button>
+         <div class="textinput textInput form-control mb-4" id="card-element"><!--Stripe.js injects the Card Element--></div>
+         <a href="" class="btn btn-dark">Back</a>
+         <button class="btn btn-success" id="submit">
+         <div class="spinner hidden" id="spinner"></div>
+         <span id="button-text">Pay</span>
+         </button>
       </form>
     </div>
 </div>
 
+{% endblock %}
+
+{% block additionaljs %}
+   {{ block.super }}
+   {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+   {{ client_secret|json_script:"id_client_secret" }}
 {% endblock %}
