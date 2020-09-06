@@ -17,7 +17,7 @@
         <a href="{% url 'delete_program' program.id %}" class="btn btn-danger">Delete</a>
         {% else %}
         <a href="{% url 'program_details' program.id %}" class="btn btn-dark btn-primary">Read more</a>
-        <a href="" class="btn btn-success btn-primary">Purchase</a>
+        <a href="{% url 'purchase_checkout' program.id %}" class="btn btn-success btn-primary">Purchase</a>
         {% endif %}
       </div>
     </div>
