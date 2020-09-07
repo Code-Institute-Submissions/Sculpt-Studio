@@ -6,10 +6,12 @@ from user_profile.models import Profile
 from programs.models import Programs
 from django.contrib.auth.models import User
 import stripe
-import json
 from django.http import HttpResponse
 from django.conf import settings
 
+
+stripe_public_key = settings.STRIPE_PUBLIC_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @login_required
 def purchase_checkout(request, program_id):
@@ -18,19 +20,8 @@ def purchase_checkout(request, program_id):
     '''
     profile = get_object_or_404(Profile, user=request.user)
     program = get_object_or_404(Programs, pk=program_id)
-    form = CheckoutForm()
-    stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    stripe.api_key = settings.STRIPE_SECRET_KEY 
+    form = CheckoutForm(request.POST) 
 
-    try: 
-        stripe.PaymentIntent.create(
-            amount = int(program.price),
-            currency = 'eur'
-        )
-
-    except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be processed!')
-        return HttpResponse(content=e, status=400)
 
     context = {
         'form': form,
