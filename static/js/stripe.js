@@ -4,7 +4,7 @@
     CSS from here: 
     https://stripe.com/docs/stripe-js
 
-    for below code i have used codeinstitute boutique ado videos to guide me through the process
+    for below code i have used codeinstitute boutique ado videos to guide me through the process of setting up stripe
     while trying to keep it my own project specific
 
 */
@@ -38,17 +38,54 @@ card.mount('#card-element');
 
 /* handle validation errors */
 
-// Show the customer the error from Stripe if their card fails to charge
 
-card.AddEvenListener('change', function(event) {
-    var errorDiv = document.getElementById('#card-errors');
+card.addEventListener('change', function(event) {
+    var errorDiv = document.getElementById('card-errors');
     if (event.error) {
         var html = `
             <span class="icon" role="alert">
                 <i class="fas fa-exclamation-circle"></i>
             </span>
             <span>${event.error.message}</span> `
+        $(errorDiv).html(html)
     } else {
         errorDiv.textContent = '';
     }
 })
+
+var form = document.getElementById("payment-form");
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    // Complete payment when the submit button is clicked
+    payWithCard(stripe, card, data.clientSecret);
+});
+
+// Calls stripe.confirmCardPayment
+// If the card requires authentication Stripe shows a pop-up modal to
+// prompt the user to enter authentication details without leaving your page.
+var payWithCard = function(stripe, card, clientSecret) {
+    loading(true);
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card
+        }
+    }).then(function(result) {
+        if (result.error) {
+            var errorDiv = document.getElementById('card-errors');
+            if (event.error) {
+                var html = `
+                        <span class="icon" role="alert">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>${event.error.message}</span> `
+                $(errorDiv).html(html)
+            } else {
+                errorDiv.textContent = '';
+            }
+            showError(result.error.message);
+        } else {
+            orderComplete(result.paymentIntent.id);
+            form.submit()
+        }
+    });
+};
