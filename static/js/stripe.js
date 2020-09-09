@@ -85,7 +85,6 @@ var payWithCard = function(stripe, card, clientSecret) {
             showError(result.error.message);
         } else {
             orderComplete(result.paymentIntent.id);
-            form.submit()
         }
     });
 };
