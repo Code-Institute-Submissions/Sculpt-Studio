@@ -14,7 +14,7 @@ def cart_content(request):
     for program_id, program_quantity in cart.items():
         program = get_object_or_404(Programs, pk=program_id) 
         program_quantity = 1 
-        total = program_quantity * program.price
+        total += program_quantity * program.price
 
         cart_content.append({
             'program_id': program_id,
