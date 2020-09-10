@@ -1,34 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="row justify-content-center">
+    <div class="col-4">
+        <h1 style="text-align:center">Shopping Cart</h1>
+        <hr>
+    </div>
+</div>
 
- {% for programs in cart_content %}
  <div class="row justify-content-center mt-5">
     <div class="col-8">
         <table class="table table-bordered">
-            <thead>
+            <thead class="table-secondary">
                 <tr>
-                <th scope="col">#</th>
                 <th scope="col">Program Name</th>
                 <th scope="col">Program Type</th>
                 <th scope="col">Program Price</th>
                 </tr>
             </thead>
             <tbody>
+             {% for programs in cart_content %}
                 <tr>
-                <th scope="row">1</th>
                     <td>{{ programs.program.name }}</td>
                     <td>{{ programs.program.type }}</td>
-                    <td>{{ programs.program.price }}€</td>
+                    <td>{{ programs.program.price }} €</td>
+                    <td><button class="remove" id="remove_{{ programs.program.id }}" class="btn btn-warning">X</button></td>
+                </tr>
+             {% endfor %}
+                <tr>
+                    <td><strong>Total Cost:</strong></td>
+                    <td></td>
+                    <td><strong>{{ total }} €</strong></td>
                 </tr>
             </tbody>
         </table>
-        <a href="{% url 'remove_from_cart' %}" class="btn btn-danger">Remove Program</a>
-        <a href="" class="btn btn-success">Proceed to checkout</a>
-        
+            <a href="{% url 'programs' %}" class="btn btn-warning">Continue Shopping</a>
+            <a href="" class="btn btn-success">Proceed to checkout</a>
     </div>  
 </div>  
- {% endfor %}
 
+
+
+{% endblock %}
+
+{% block additionaljs %}
+
+   {{ block.super }}
+
+   <script src="{% static '/js/main.js' %}"></script>
 
 {% endblock %}
