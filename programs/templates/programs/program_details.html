@@ -14,8 +14,11 @@
         <a href="{% url 'delete_program' programs.id %}" class="btn btn-danger">Delete</a>
         <a href="{% url 'programs' %}" class="btn btn-dark btn-primary">Back</a>
         {% else %}
-        <a href="{% url 'programs' %}" class="btn btn-dark btn-primary">Back</a>
-        <a href="'purchase_checkout' program.id" class="btn btn-success btn-primary">Purchase</a>
+        <form action="{% url 'add_to_cart' program.id%}" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'program_details' program.id %}" class="btn btn-dark btn-primary">Details</a>
+        <input type="submit" name="add" value="Select" class="btn btn-success btn-primary"></input>
+        </form>
         {% endif %}
       </div>
     </div>
