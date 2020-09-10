@@ -19,7 +19,7 @@ def add_to_cart(request, program_id):
     cart before payment
 
     '''
-    cart = request.session.get('cart')
+    cart = request.session.get('cart', {})
     program_count = 1
 
     if program_id in list(cart.keys()):
@@ -34,15 +34,13 @@ def add_to_cart(request, program_id):
     return redirect(reverse('cart'))
 
 
-def remove_from_cart(request, program_id):
+def remove_from_cart(request):
     '''
     removing added program from cart 
     '''
 
     cart = request.session.get('cart', {})
-
-    del cart
-    
+    cart.clear()
     messages.success(request, f'Program removed from cart!')
 
 

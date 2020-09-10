@@ -6,8 +6,9 @@ def cart_content(request):
     return contents of cart across views 
     '''
     cart_content = []
-    cart = request.session.get('cart')
     program_count = 1
+    total = 0
+    cart = request.session.get('cart', {})
     
 
     for program_id, program_quantity in cart.items():
@@ -18,7 +19,7 @@ def cart_content(request):
         cart_content.append({
             'program_id': program_id,
             'program': program,
-            'program_quantity': program_quantity
+            'program_quantity': program_quantity,
         })
 
 
