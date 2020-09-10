@@ -8,13 +8,11 @@ def cart_content(request):
 
     cart = request.session.get('cart')
     cart_content = []
-    cost = 0
     program_count = 1
     
 
     for program_id, program_quantity in cart.items():
         program = get_object_or_404(Programs, pk=program_id) 
-        cost = program.price
         program_quantity = 1 
         total = program_quantity * program.price
 
@@ -27,7 +25,6 @@ def cart_content(request):
 
     context = {
         'cart_content': cart_content,
-        'cost': cost,
         'program_count': program_count,
         'total': total
     }

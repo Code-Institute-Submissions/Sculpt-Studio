@@ -31,4 +31,4 @@ def add_to_cart(request, program_id):
 
 
 
-    return redirect('cart')
+    return redirect(reverse('cart'))
