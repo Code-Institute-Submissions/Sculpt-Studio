@@ -19,16 +19,15 @@ def add_to_cart(request, program_id):
     cart before payment
 
     '''
-    program = request.POST.get('add')
-    cart = request.session.get('cart', {})
+    cart = request.session.get('cart')
+    program_count = 1
 
     if program_id in list(cart.keys()):
         messages.error(request, 'This programs is already chosen for purchase')
     else: 
-        cart[program_id] = program
+        cart[program_id] = program_count
 
     request.session['cart'] = cart
-    print(request.session['cart'])
 
 
 

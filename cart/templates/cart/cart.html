@@ -2,5 +2,14 @@
 
 {% block content %}
 
+ {% for programs in cart_content %}
+    {{ programs.program.price }}
+    {{ programs.program.name }}
+    {{ programs.program.type }}
 
+    
+
+ {% endfor %}
+
+ 
 {% endblock %}
