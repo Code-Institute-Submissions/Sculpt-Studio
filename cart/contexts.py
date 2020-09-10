@@ -5,9 +5,8 @@ def cart_content(request):
     '''
     return contents of cart across views 
     '''
-
-    cart = request.session.get('cart')
     cart_content = []
+    cart = request.session.get('cart')
     program_count = 1
     
 

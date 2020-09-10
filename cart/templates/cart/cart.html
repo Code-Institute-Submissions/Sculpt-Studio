@@ -3,13 +3,32 @@
 {% block content %}
 
  {% for programs in cart_content %}
-    {{ programs.program.price }}
-    {{ programs.program.name }}
-    {{ programs.program.type }}
-
-    
-
+ <div class="row justify-content-center mt-5">
+    <div class="col-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Program Name</th>
+                <th scope="col">Program Type</th>
+                <th scope="col">Program Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                    <td>{{ programs.program.name }}</td>
+                    <td>{{ programs.program.type }}</td>
+                    <td>{{ programs.program.price }}€</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{% url 'remove_from_cart' programs.program.id %}" class="btn btn-danger">Remove Program</a>
+        <a href="" class="btn btn-success">Proceed to checkout</a>
+        
+    </div>  
+</div>  
  {% endfor %}
 
- 
+
 {% endblock %}

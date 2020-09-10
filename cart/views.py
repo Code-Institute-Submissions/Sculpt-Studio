@@ -23,7 +23,7 @@ def add_to_cart(request, program_id):
     program_count = 1
 
     if program_id in list(cart.keys()):
-        messages.error(request, 'This programs is already chosen for purchase')
+        messages.error(request, f'This programs is already chosen for purchase')
     else: 
         cart[program_id] = program_count
 
@@ -32,3 +32,18 @@ def add_to_cart(request, program_id):
 
 
     return redirect(reverse('cart'))
+
+
+def remove_from_cart(request, program_id):
+    '''
+    removing added program from cart 
+    '''
+
+    cart = request.session.get('cart', {})
+
+    del cart
+    
+    messages.success(request, f'Program removed from cart!')
+
+
+    return redirect(reverse('programs'))
