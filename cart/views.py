@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from programs.models import Programs
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -12,7 +13,7 @@ def cart(request):
 
     return render(request, 'cart/cart.html')
 
-
+@login_required
 def add_to_cart(request, program_id):
     '''
     adding programs chosen to purchase to
@@ -33,14 +34,14 @@ def add_to_cart(request, program_id):
 
     return redirect(reverse('cart'))
 
-
-def remove_from_cart(request):
+@login_required
+def remove_from_cart(request, program_id):
     '''
     removing added program from cart 
     '''
-
     cart = request.session.get('cart', {})
-    cart.clear()
+
+    cart.pop[program_id]
     messages.success(request, f'Program removed from cart!')
 
 
