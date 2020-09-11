@@ -1,4 +1,5 @@
-//get Id for programs in cart //
+//onclick --> get Id for programs in cart and reload url 
+// to call python function for removing from cart
 
 document.querySelectorAll('.remove').forEach(e => {
     e.addEventListener('click', function() {
