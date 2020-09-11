@@ -29,6 +29,7 @@ def add_to_cart(request, program_id):
         messages.error(request, f'{program.name} is already added to cart!')
     else: 
         cart[program_id] = program_count
+        messages.success(request, f'{program.name} succesfully added to cart!')
 
     request.session['cart'] = cart
 
