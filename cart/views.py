@@ -39,10 +39,12 @@ def remove_from_cart(request, program_id):
     '''
     removing added program from cart 
     '''
+    program = get_object_or_404(Programs, pk=program_id)
     cart = request.session.get('cart', {})
+    id = str(program_id)
+    cart.pop(id)
+    messages.success(request, f'{program.name} succesfully removed from your shopping cart!')
 
-    cart.pop[program_id]
-    messages.success(request, f'Program removed from cart!')
+    request.session['cart'] = cart
 
-
-    return redirect(reverse('programs'))
+    return redirect(reverse('cart'))
