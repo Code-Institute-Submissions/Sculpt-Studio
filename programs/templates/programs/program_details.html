@@ -17,7 +17,7 @@
         <form action="{% url 'add_to_cart' programs.id %}" method="POST">
         {% csrf_token %}
         <a href="{% url 'programs' %}" class="btn btn-dark btn-primary">Back</a>
-        <input type="submit" name="add" value="Select" class="btn btn-success btn-primary"></input>
+        <input type="submit" name="add" value="Add to cart" class="btn btn-success btn-primary"></input>
         </form>
         {% endif %}
       </div>
