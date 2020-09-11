@@ -11,13 +11,15 @@
       <input class="textinput textInput form-control mb-2" readonly value="{{ profile.user.first_name }}"> 
       <label>Last Name:</label>
       <input class="textinput textInput form-control mb-2" readonly value="{{ profile.user.last_name }}"> 
-      <label>Program to purchase:</label>
-      <input class="textinput textInput form-control mb-2" readonly value="{{ program.name }}"> 
-      <label>Program price:</label>
-      <input class="textinput textInput form-control mb-2" readonly value="{{ program.price }}€"> 
-      <form action="{% url 'purchase_checkout' program.id %}" method="POST" id="payment-form">
+      <form action="{% url 'purchase_checkout' %}" method="POST" id="payment-form">
          {% csrf_token %}
          {{ form | crispy }}
+         <label>Purchase details:</label>
+         {% for info in cart_content %}
+         <p class="textinput textInput form-control mb-2">{{ info.program.name}} | {{ info.program.type }} | {{ info.program.price }}€</p>
+         {% endfor %}
+         <label>Total Cost:</label>
+         <p class="textinput textInput form-control mb-2">{{ total }}€</p>
          <div class="mb-3" id="card-element">
           <!-- Elements will create input elements here -->
          </div>
