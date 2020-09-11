@@ -25,7 +25,9 @@
                     <td>{{ programs.program.name }}</td>
                     <td>{{ programs.program.type }}</td>
                     <td>{{ programs.program.price }} €</td>
-                    <td><a id="program_{{ programs.program.id }}" class=" remove btn btn-warning">X</a></td>
+                    <td><a id="program_{{ programs.program.id }}" class="remove btn">
+                        <i class="fas fa-trash-alt"></i>
+                    </a></td>
                 </tr>
              {% endfor %}
                 <tr>

@@ -20,11 +20,13 @@ def add_to_cart(request, program_id):
     cart before payment
 
     '''
+    program = get_object_or_404(Programs, pk=program_id)
     cart = request.session.get('cart', {})
     program_count = 1
+    id = str(program_id)
 
-    if program_id in list(cart.keys()):
-        messages.error(request, f'This programs is already chosen for purchase')
+    if id in list(cart.keys()):
+        messages.error(request, f'{program.name} is already added to cart!')
     else: 
         cart[program_id] = program_count
 
