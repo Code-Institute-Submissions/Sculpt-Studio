@@ -32,8 +32,8 @@ def purchase_checkout(request):
         form = CheckoutForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Thank you for your purchase, a confirmation email will be sent to your'
-                                        'registered email address! You can also check your purchases from your profile')
+            messages.success(request, f'Thank you for your purchase, a confirmation email will be sent to your\
+                                        registered email address! You can also check your purchases from your profile')
         else: 
             messages.error(request, f'An error occured!')
         return redirect(reverse('purchase_successful'))
@@ -66,6 +66,9 @@ def purchase_successful(request):
     '''
     render after successful purchase action
     '''
+    if 'cart' in request.session:
+        del request.session['cart']
+        
     profile = get_object_or_404(Profile, user=request.user)
 
     context = {
