@@ -20,7 +20,7 @@ def purchase_checkout(request):
     '''
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    profile = get_object_or_404(Profile, user=request.user)
+    profile = get_object_or_404(User, user=request.user)
     cart = request.session.get('cart', {})
 
 
@@ -68,7 +68,7 @@ def purchase_successful(request):
     '''
     if 'cart' in request.session:
         del request.session['cart']
-        
+
     profile = get_object_or_404(Profile, user=request.user)
 
     context = {
