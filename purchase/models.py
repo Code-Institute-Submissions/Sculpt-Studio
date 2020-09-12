@@ -9,9 +9,10 @@ class Checkout(models.Model):
     '''
     model for checkout page and purchases
     '''
-    order_number = models.CharField(max_length=32, null=False, editable=False, default="")
-    profile = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
+    order_number = models.CharField(max_length=32, null=False, editable=False)
+    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
     program = models.OneToOneField(Programs, on_delete=models.CASCADE, null=True)
+    email = models.EmailField(max_length=128, null=False)
     billing_address = models.CharField(max_length=256)
     billing_postcode = models.CharField(max_length=15)
     billing_city = models.CharField(max_length=32)
