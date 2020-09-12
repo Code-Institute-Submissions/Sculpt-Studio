@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CheckoutForm
-from user_profile.models import Profile
 from programs.models import Programs
 from .models import Checkout
 from django.contrib.auth.models import User
@@ -32,8 +31,6 @@ def purchase_checkout(request):
         form = CheckoutForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Thank you for your purchase, a confirmation email will be sent to your\
-                                        registered email address! You can also check your purchases from your profile')
         else: 
             messages.error(request, f'An error occured!')
         return redirect(reverse('purchase_successful'))
@@ -62,18 +59,26 @@ def purchase_checkout(request):
 
 
 @login_required
-def purchase_successful(request):
+def purchase_successful(request, order_number):
     '''
     render after successful purchase action
     '''
+    profile = get_object_or_404(User, user=request.user)
+    purchase = get_object_or_404(Checkout, order_number=order_number)
+
+    messages.success(request, f'Thank you for your purchase!\
+                                You will receive a confirmation via your e-mail provided during your order.\
+                                Your order number is { purchase.order_number }!')
+
+
     if 'cart' in request.session:
         del request.session['cart']
 
-    profile = get_object_or_404(Profile, user=request.user)
 
     context = {
 
         'profile': profile,
+        'purchase': purchase,
     }
 
     return render(request, 'purchase/purchase_successful.html', context)
