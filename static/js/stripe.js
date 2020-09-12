@@ -72,12 +72,12 @@ var payWithCard = function(stripe, card, clientSecret) {
     }).then(function(result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
-            if (event.error) {
+            if (error) {
                 var html = `
                         <span class="icon" role="alert">
                             <i class="fas fa-exclamation-circle"></i>
                         </span>
-                        <span>${event.error.message}</span> `
+                        <span>${error.message}</span> `
                 $(errorDiv).html(html)
             } else {
                 errorDiv.textContent = '';
@@ -85,6 +85,7 @@ var payWithCard = function(stripe, card, clientSecret) {
             showError(result.error.message);
         } else {
             orderComplete(result.paymentIntent.id);
+            form.submit();
         }
     });
 };
