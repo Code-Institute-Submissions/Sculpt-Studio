@@ -66,11 +66,10 @@ def purchase_successful(request):
     '''
     render after successful purchase action
     '''
-    order_number = get_object_or_404(Checkout)
     profile = get_object_or_404(Profile, user=request.user)
 
     context = {
-        'purchase': order_number,
+
         'profile': profile,
     }
 

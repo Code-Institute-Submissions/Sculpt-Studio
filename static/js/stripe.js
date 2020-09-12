@@ -36,7 +36,7 @@ var card = elements.create('card', { style: style });
 card.mount('#card-element');
 
 
-/* handle validation errors */
+// handle validation errors
 
 
 card.addEventListener('change', function(event) {
@@ -53,18 +53,21 @@ card.addEventListener('change', function(event) {
     }
 })
 
+// handling form submit
+
 var form = document.getElementById("payment-form");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    // Complete payment when the submit button is clicked
-    payWithCard(stripe, card, data.clientSecret);
+    card.update({ 'disabled': true });
+    $().attr('disabled', true)
+        // Complete payment when the submit button is clicked
+    payWithCard(stripe, card, clientSecret);
 });
 
 // Calls stripe.confirmCardPayment
 // If the card requires authentication Stripe shows a pop-up modal to
 // prompt the user to enter authentication details without leaving your page.
 var payWithCard = function(stripe, card, clientSecret) {
-    loading(true);
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card
@@ -84,8 +87,8 @@ var payWithCard = function(stripe, card, clientSecret) {
             }
             showError(result.error.message);
         } else {
-            orderComplete(result.paymentIntent.id);
             form.submit();
+            console.log(form)
         }
     });
 };
