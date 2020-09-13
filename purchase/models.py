@@ -10,7 +10,7 @@ class Checkout(models.Model):
     model for checkout page and purchases
     '''
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user = models.OneToOneField(Profile, null=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL, related_name='orders')
     program = models.OneToOneField(Programs, on_delete=models.CASCADE, null=True)
     email = models.EmailField(max_length=128, null=False)
     billing_address = models.CharField(max_length=256)
@@ -25,7 +25,7 @@ class Checkout(models.Model):
         '''
         generate order_number
         '''
-        return uuid.uuid4().hex.upper
+        return uuid.uuid4().hex.upper()
 
     def save(self, *args, **kwargs):
         if not self.order_number:
