@@ -48,6 +48,8 @@ card.addEventListener('change', function(event) {
             </span>
             <span>${event.error.message}</span> `
         $(errorDiv).html(html)
+        card.update({ 'disabled': false });
+        $().attr('disabled', false)
     } else {
         errorDiv.textContent = '';
     }
