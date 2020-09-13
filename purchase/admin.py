@@ -5,6 +5,7 @@ from .models import Checkout
 class CheckoutAdmin(admin.ModelAdmin):
     list_display = ( 
                 'user',
+                'order_number',
                 'email',
                 'billing_address',
                 'billing_postcode',
