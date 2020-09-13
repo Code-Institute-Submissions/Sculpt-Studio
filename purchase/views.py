@@ -97,3 +97,22 @@ def purchase_successful(request, order_number):
     }
 
     return render(request, 'purchase/purchase_successful.html', context)
+
+
+def user_purchases(request, user_id):
+    '''
+    render user purchase history in 
+    account section 
+    '''
+
+    profile = get_object_or_404(Profile, user_id=request.user)
+    purchase = Checkout.objects.filter(user=profile)
+ 
+
+    context = {
+        'profile': profile,
+        'purchase': purchase
+
+    }
+
+    return render(request, 'purchase/user_purchases.html', context)

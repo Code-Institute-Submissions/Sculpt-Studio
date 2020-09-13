@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-8">
+          <h3 align="center">Welcome {{ user.get_short_name }}, to your account!</h3>
+    </div>
+</div>
+<nav class="nav nav-pills nav-fill">
+  {% if request.user.is_superuser %}
+  <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
+  <a class="nav-item nav-link" href="{% url 'add_program'%}">Add Program</a>
+  <a class="nav-item nav-link" href="{% url 'programs'%}">Edit Programs</a>
+  <a class="nav-item nav-link" href="{% url 'add_partners'%}">Add Partners</a>
+  <a class="nav-item nav-link" href="{% url 'partners'%}">Edit Partners</a>
+  <a class="nav-item nav-link" href="{% url 'user_selection' %}">User Management</a>
+  {% else %}
+  <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
+  <a class="nav-item nav-link" href="{% url 'user_purchases' profile.id %}">My Purchases</a>
+  <a class="nav-item nav-link" href="{% url 'add_testimonials' %}">Leave a Review</a>
+  <a class="nav-item nav-link" href="{% url 'book_meeting' %}">Book a Meeting</a>
+  {% endif %}
+</nav>
+<hr>
+
+
+{{ orders }}
+
+{% for order in purchase %}
+
+    {{ order.order_number }}
+    {{ order.email }}
+
+{% endfor %}
+
+{% endblock %}
