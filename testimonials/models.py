@@ -12,8 +12,8 @@ class Testimonials(models.Model):
     class Meta():
         verbose_name_plural = 'Testimonials'
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
-    program_id = models.OneToOneField(Programs, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    program_id = models.ForeignKey(Programs, on_delete=models.CASCADE, null=True)
     review = models.TextField(max_length=2064)
     score = models.PositiveIntegerField(default=0, choices=([i,i] for i in range(11)))
     date = models.DateField(default=timezone.now)
