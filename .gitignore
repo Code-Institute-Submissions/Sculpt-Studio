@@ -6671,3 +6671,8 @@ env/lib/python3.8/site-packages/stripe-2.51.0.dist-info/REQUESTED
 env/lib/python3.8/site-packages/stripe-2.51.0.dist-info/top_level.txt
 env/lib/python3.8/site-packages/stripe-2.51.0.dist-info/WHEEL
 env.py
+**/env/
+**/__pycache__/
+__pycache__/
+env/
+db.sqlite3
