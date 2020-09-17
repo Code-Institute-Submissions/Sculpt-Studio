@@ -52,6 +52,8 @@ def purchase_checkout(request):
                 'user': profile.user,
                 'country': profile.country,
                 'email': profile.user.email,
+                'billing_address': profile.address,
+                'billing_country': profile.country,
             })
         except Profile.DoesNotExist:
             form = CheckoutForm()
