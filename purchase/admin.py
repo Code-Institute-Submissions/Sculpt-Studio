@@ -19,5 +19,6 @@ class CheckoutAdmin(admin.ModelAdmin):
                 'billing_city',
                 'billing_country',
     )
+    readonly_fields = ('user', 'purchase_date', 'total_cost', )
     
 admin.site.register(Checkout, CheckoutAdmin)

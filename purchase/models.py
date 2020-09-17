@@ -3,6 +3,7 @@ from programs.models import Programs
 from user_profile.models import Profile
 from django_countries.fields import CountryField
 from django.utils import timezone
+from django.db.models import Sum
 import uuid
 
 
@@ -12,7 +13,7 @@ class Checkout(models.Model):
     '''
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL, related_name='orders')
-    total_cost = models.DecimalField(max_digits=8, decimal_places=2, null=False, default=0)
+    total_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     purchase_date = models.DateTimeField(editable=False, auto_now_add=True)
     email = models.EmailField(max_length=128, null=False)
     billing_address = models.CharField(max_length=256)
@@ -21,13 +22,20 @@ class Checkout(models.Model):
     billing_country = CountryField()
     
 
-
-
     def _generate_order_number(self):
         '''
         generate order_number
         '''
         return uuid.uuid4().hex.upper()
+
+    
+    def update_total_cost(self):
+        '''
+        update total cost
+        '''
+        self.total_cost = self.lineitems.aggregate(Sum('line_item_cost'))['line_item_cost__sum']
+        save(self)
+
 
     def save(self, *args, **kwargs):
         if not self.order_number:
