@@ -12,7 +12,6 @@ class CheckoutAdmin(admin.ModelAdmin):
                 'user',
                 'order_number',
                 'email',
-                'total_cost',
                 'purchase_date',
                 'billing_address',
                 'billing_postcode',
