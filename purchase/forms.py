@@ -7,5 +7,7 @@ class CheckoutForm(forms.ModelForm):
     '''form to user for purchasing of programs'''
     class Meta:
         model = Checkout
-        fields = '__all__'
-        exclude = ['user', 'program']
+        fields = ('email', 'billing_address', 'billing_postcode',
+                  'billing_city', 'billing_country')
+
+        

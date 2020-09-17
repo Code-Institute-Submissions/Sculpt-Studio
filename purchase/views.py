@@ -47,10 +47,13 @@ def purchase_checkout(request):
         prefill form for logged in user
         '''
         try:
+            cart_now = cart_content(request)
+            total = cart_now['total']
             profile = Profile.objects.get(user=request.user)
             form = CheckoutForm(initial={
                 'user': profile.user,
                 'country': profile.country,
+                'total_cost': total,
                 'email': profile.user.email,
                 'billing_address': profile.address,
                 'billing_country': profile.country,

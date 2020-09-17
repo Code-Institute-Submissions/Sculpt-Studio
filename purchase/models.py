@@ -12,10 +12,8 @@ class Checkout(models.Model):
     '''
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL, related_name='orders')
-    program = models.ForeignKey(Programs, on_delete=models.CASCADE, null=True)
-    program_cost = models.DecimalField(max_digits=8, decimal_places=2, null=False, default=0, editable=False)
-    total_cost = models.DecimalField(max_digits=8, decimal_places=2, null=False, default=0, editable=False)
-    purchase_date = models.DateTimeField(editable=False, default=timezone.now)
+    total_cost = models.DecimalField(max_digits=8, decimal_places=2, null=False, default=0)
+    purchase_date = models.DateTimeField(editable=False, auto_now_add=True)
     email = models.EmailField(max_length=128, null=False)
     billing_address = models.CharField(max_length=256)
     billing_postcode = models.CharField(max_length=15)
@@ -38,5 +36,15 @@ class Checkout(models.Model):
 
     def __str__(self):
         return self.order_number
+
+
+
+class CheckoutLineItem(models.Model):
+    '''
+    create line item for purchae for details 
+    of ordered programs, cost etc.
+    '''
+    purchase = models.ForeignKey(Checkout, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    program = models.ForeignKey(Programs, null=False, blank=False, on_delete=models.CASCADE)
 
 
