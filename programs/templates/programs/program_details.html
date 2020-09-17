@@ -31,7 +31,7 @@
           <div class="card-body">
             <p class="card-text"><i>"{{ testimonial.review }}"</i></p>
             <p class="card-text">Reviewed By: <strong>{{ testimonial.user.first_name}}</strong></p>
-            <p class="card-text">I purchased {{ testimonial.program_id}}</p> 
+            <p class="card-text">I purchased "{{ testimonial.program_id}}"</p> 
             <p class="card-text">Rating: {{ testimonial.score }}</p>
             <p class="card-text">Review date: {{ testimonial.date }}</p> 
             {% if request.user.is_superuser %}
