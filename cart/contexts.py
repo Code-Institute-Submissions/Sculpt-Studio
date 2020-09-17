@@ -11,9 +11,9 @@ def cart_content(request):
     cart = request.session.get('cart', {})
     
 
-    for program_id, program_quantity in cart.items():
+    for program_id, program_data in cart.items():
         program = get_object_or_404(Programs, pk=program_id) 
-        program_quantity = 1 
+        program_quantity = program_data 
         total += program_quantity * program.price
 
         cart_content.append({
