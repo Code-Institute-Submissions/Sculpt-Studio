@@ -24,4 +24,22 @@
     </div>
   </div>
 </div>
+<div class="row justify-content-center">
+{% for testimonial in programs.testimonials_set.all %}
+    <div class="col-sm-4 cards">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text"><i>"{{ testimonial.review }}"</i></p>
+            <p class="card-text">Reviewed By: <strong>{{ testimonial.user.first_name}}</strong></p>
+            <p class="card-text">I purchased {{ testimonial.program_id}}</p> 
+            <p class="card-text">Rating: {{ testimonial.score }}</p>
+            <p class="card-text">Review date: {{ testimonial.date }}</p> 
+            {% if request.user.is_superuser %}
+            <a class="btn btn-danger btn-primary" href="{% url 'delete_testimonials' testimonial.id %}">Delete</a>
+            {% endif %}
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
