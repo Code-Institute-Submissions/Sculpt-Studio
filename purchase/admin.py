@@ -4,6 +4,7 @@ from .models import Checkout, CheckoutLineItem
 
 class CheckoutLineItemsAdmin(admin.TabularInline):
     model = CheckoutLineItem
+    readonly_fields = ('program', 'line_item_cost', 'quantity' )
 
 
 class CheckoutAdmin(admin.ModelAdmin):

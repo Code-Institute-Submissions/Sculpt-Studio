@@ -46,5 +46,17 @@ class CheckoutLineItem(models.Model):
     '''
     purchase = models.ForeignKey(Checkout, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     program = models.ForeignKey(Programs, null=False, blank=False, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    line_item_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0, editable=False)
+
+    def save(self, *args, **kwargs):
+        '''
+        set line item cost
+        '''
+        self.line_item_cost = self.program.price * self.quantity
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.purchase.order_number
 
 

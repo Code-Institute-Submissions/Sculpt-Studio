@@ -4,7 +4,7 @@ from django.contrib import messages
 from .forms import CheckoutForm
 from programs.models import Programs
 from user_profile.models import Profile
-from .models import Checkout
+from .models import Checkout, CheckoutLineItem
 from django.contrib.auth.models import User
 import stripe
 import json
@@ -26,8 +26,19 @@ def purchase_checkout(request):
 
     if request.method == 'POST':
         form = CheckoutForm(request.POST)
+        cart = request.session.get('cart', {})
         if form.is_valid:
+            order = form.save(commit=False)
+            order.original_cart = json.dumps(cart)
             order = form.save()
+            for program_id, program_data in cart.items():
+                    program = Programs.objects.get(id=program_id)
+                    checkout_line_item = CheckoutLineItem(
+                        purchase=order,
+                        program=program,
+                        quantity=program_data
+                        )
+                    checkout_line_item.save()
             return redirect(reverse('purchase_successful', args=[order.order_number]))
         else: 
             messages.error(request, f'An error occured!')
@@ -47,13 +58,10 @@ def purchase_checkout(request):
         prefill form for logged in user
         '''
         try:
-            cart_now = cart_content(request)
-            total = cart_now['total']
             profile = Profile.objects.get(user=request.user)
             form = CheckoutForm(initial={
                 'user': profile.user,
                 'country': profile.country,
-                'total_cost': total,
                 'email': profile.user.email,
                 'billing_address': profile.address,
                 'billing_country': profile.country,
@@ -73,6 +81,8 @@ def purchase_checkout(request):
         'client_secret': intent.client_secret
     }
     return render(request, 'purchase/purchase_checkout.html', context)
+
+
 
 
 @login_required
