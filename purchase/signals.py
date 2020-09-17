@@ -12,10 +12,10 @@ def update_when_save(sender, instance, created, **kwargs):
     instance.purchase.update_total_cost()
 
 
+
 @receiver(post_delete, sender=CheckoutLineItem)
 def update_when_delete(sender, instance, **kwargs):
     '''
     update order total when lineitems deleted
     '''
-    print('Signals received!')
     instance.purchase.update_total_cost()
