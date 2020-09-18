@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm, UserManagementForm
+from purchase.models import Checkout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
@@ -79,10 +80,18 @@ def user_management(request, user_id):
 
 
 @login_required
-def book_meeting(request):
+def book_meeting(request, user_id):
     """
     render book_meeting.html where calendly booking widget is embedded
+    if user has purchases
     """
-    return render(request,'user_profile/book_meeting.html')
+    user = get_object_or_404(Profile, user_id=request.user)
+    purchases = Checkout.objects.filter(user=user)
+
+    context = {
+        'user': user,
+        'purchases': purchases
+    }
+    return render(request,'user_profile/book_meeting.html', context)
 
 

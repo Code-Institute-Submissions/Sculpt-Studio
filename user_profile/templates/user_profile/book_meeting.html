@@ -18,46 +18,32 @@
   <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
   <a class="nav-item nav-link" href="{% url 'user_purchases' user.id %}">My Purchases</a>
   <a class="nav-item nav-link" href="{% url 'add_testimonials' %}">Leave a Review</a>
-  <a class="nav-item nav-link" href="{% url 'book_meeting' %}">Book a Meeting</a>
+  <a class="nav-item nav-link" href="{% url 'book_meeting' user.id %}">Book a Meeting</a>
   {% endif %}
 </nav>
 <hr>
 
-
-{% for info in purchases %}
-  {% if info.order_number %}
-   <div class="row justify-content-center">
-      <div class="col-lg-6 col-md-6" align="center">
-         <div class="card">
-              <div class="card-body">
-                  <p>There are not purchases registered on your account! To book meetings with our trainer please checkout our programs</p>
-                  <a href="{% url 'programs' %}" class="card-link">Programs</a>
-                  <a href="{% url 'testimonials' %}" class="card-link">Testimonials</a>
-              </div>
-         </div>
-      </div>
-  {% endif %}
-{% endfor %}
-
-
-
-  {% if order_number %}
+{% if purchases %}
   <!-- Calendly inline widget begin -->
   <div class="calendly-inline-widget" data-url="https://calendly.com/madis-tepp/60min" style="min-width:320px;height:630px;"></div>
   <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
   <!-- Calendly inline widget end -->
+{% else %}
   <div class="row justify-content-center">
       <div class="col-lg-6 col-md-6" align="center">
-         <div class="card">
+          <div class="card">
               <div class="card-body">
-                  <p>There are not purchases registered on your account! To book meetings with our trainer please checkout our programs</p>
+                  <p><strong>There are not purchases registered on your account!</strong><br>
+                   To book meetings with our trainer you need to have a valid program purchased! <br>
+                  </p>
                   <a href="{% url 'programs' %}" class="card-link">Programs</a>
                   <a href="{% url 'testimonials' %}" class="card-link">Testimonials</a>
               </div>
-         </div>
+          </div>
       </div>
   </div>
-  {% endif %}
+{% endif %}
+
 
 
 {% endblock %}
