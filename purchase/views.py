@@ -114,7 +114,7 @@ def purchase_successful(request, order_number):
     return render(request, 'purchase/purchase_successful.html', context)
 
 
-def user_purchases(request):
+def user_purchases(request, user_id):
     '''
     render user purchase history in 
     account section 

@@ -17,7 +17,7 @@
   <a class="nav-item nav-link" href="{% url 'user_selection' %}">User Management</a>
   {% else %}
   <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
-  <a class="nav-item nav-link" href="#">My Purchases</a>
+  <a class="nav-item nav-link" href="{% url 'user_purchases' user.id %}">My Purchases</a>
   <a class="nav-item nav-link" href="{% url 'add_testimonials' %}">Leave a Review</a>
   <a class="nav-item nav-link" href="{% url 'book_meeting' %}">Book a Meeting</a>
   {% endif %}

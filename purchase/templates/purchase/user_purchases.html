@@ -25,13 +25,25 @@
 <hr>
 
 
-{{ orders }}
 
-{% for order in purchase %}
 
-    {{ order.order_number }}
-    {{ order.email }}
+<div class="row justify-content-center">
+    {% for order in purchase %}
+    <div class="col-8 cards">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text"><strong>Order Number:</strong>  {{ order.order_number }}</p>
+            {% for item in order.lineitems.all %}
+            <p class="card-text"><strong>Program:</strong> {{ item.program.name }} - {{ item.line_item_cost }} €</p> 
+            <p class="card-text"><strong>Type:</strong> {{ item.program.type }}</p>
+            {% endfor %}
+            <p class="card-text"><strong>Total Cost:</strong>  {{ order.total_cost }} €</p>
+            <p class="card-text"><strong>Purchase Date/Time:</strong>   {{ order.purchase_date }}</p>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-{% endfor %}
 
 {% endblock %}
