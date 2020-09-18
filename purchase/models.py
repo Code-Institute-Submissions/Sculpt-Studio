@@ -33,7 +33,7 @@ class Checkout(models.Model):
         '''
         update total cost
         '''
-        self.total_cost = self.lineitems.aggregate(Sum('line_item_cost'))['line_item_cost__sum']
+        self.total_cost = self.lineitems.aggregate(Sum('line_item_cost'))['line_item_cost__sum'] or 0 
         self.save()
 
 

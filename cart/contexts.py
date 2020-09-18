@@ -6,7 +6,7 @@ def cart_content(request):
     return contents of cart across views 
     '''
     cart_content = []
-    program_count = 1
+    program_count = 0
     total = 0
     cart = request.session.get('cart', {})
     
@@ -14,6 +14,7 @@ def cart_content(request):
     for program_id, program_data in cart.items():
         program = get_object_or_404(Programs, pk=program_id) 
         program_quantity = program_data 
+        program_count += program_data
         total += program_quantity * program.price
 
         cart_content.append({
