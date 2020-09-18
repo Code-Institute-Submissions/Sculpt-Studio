@@ -129,7 +129,7 @@ WSGI_APPLICATION = 'sculpt_studio.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://raivioxrkkqvhz:3f82083cff95d81c9167458fd9cabbffe254298907184bff1aca314a5b2c2c81@ec2-54-217-213-79.eu-west-1.compute.amazonaws.com:5432/d1rar6icrbt219')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
