@@ -1,1 +1,1 @@
-web: gunicorn sculpt_studio.wsgi:application 
+web: gunicorn sculpt_studio.wsgi.application
