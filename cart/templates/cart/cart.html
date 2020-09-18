@@ -24,10 +24,12 @@
                 <tr>
                     <td>{{ programs.program.name }}</td>
                     <td>{{ programs.program.type }}</td>
-                    <td>{{ programs.program.price }} €</td>
-                    <td><a id="program_{{ programs.program.id }}" class="remove btn">
+                    <td>{{ programs.program.price }} €
+                        <a id="program_{{ programs.program.id }}" class="remove btn">
                         <i class="fas fa-trash-alt"></i>
-                    </a></td>
+                    </a>
+                    </td>
+
                 </tr>
              {% endfor %}
                 <tr>
