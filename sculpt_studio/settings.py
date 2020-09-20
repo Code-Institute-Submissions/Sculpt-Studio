@@ -214,6 +214,7 @@ if 'USE_AWS' in os.environ:
 CRISPY_TEMPLATE_PACK = 'bootstrap4' 
 
 
+
 # Stripe payment 
 
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
