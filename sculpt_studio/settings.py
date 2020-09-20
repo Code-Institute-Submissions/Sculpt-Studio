@@ -30,7 +30,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['sculpt-studio.herokuapp.com', '127.0.0.1']
 
@@ -83,7 +83,17 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1 #required together with 'django.contrib.sites'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+    DEFAULT_FROM_EMAIL = 'admin@SculptStudio.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER =  os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASS = os.environ.get('EMAIL_HOST_PASS')
+
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
 ACCOUNT_EMAIL_REQUIRED = True #email required to register
@@ -209,3 +219,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_CURRENCY = 'eur'
+
