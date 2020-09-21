@@ -31,9 +31,9 @@
         <label>Username</label>
         <input class="textinput textInput form-control mb-2" readonly value="{{ user.username }}"> 
         <label>First Name</label>
-        <input class="textinput textInput form-control mb-2" readonly value="{{ user.first_name }}"> 
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.profile.first_name }}"> 
         <label>Last Name</label>
-        <input class="textinput textInput form-control mb-2" readonly value="{{ user.last_name }}"> 
+        <input class="textinput textInput form-control mb-2" readonly value="{{ user.profile.last_name }}"> 
         <label>Email / </label>
         <a class="" href="{% url 'account_email' %}">Update E-mail</a>
         <input class="textinput textInput form-control mb-2" readonly value="{{ user.email }}"> 

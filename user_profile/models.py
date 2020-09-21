@@ -8,6 +8,8 @@ from programs.models import Programs
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=32, blank=True)
+    last_name = models.CharField(max_length=32, blank=True)
     address = models.CharField(max_length=264, blank=True)
     country = CountryField(blank=True)
     height  = models.IntegerField(default=0, blank=True)

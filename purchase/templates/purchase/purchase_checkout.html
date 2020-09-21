@@ -9,9 +9,9 @@
     <div class="col-8">
       <form action="{% url 'purchase_checkout' %}" method="POST" id="payment-form">
       <label>First Name:</label>
-         <input class="textinput textInput form-control mb-2" value="{{ profile.user.first_name }}"> 
+         <input class="textinput textInput form-control mb-2" value="{{ profile.first_name }}"> 
          <label>Last Name:</label>
-         <input class="textinput textInput form-control mb-2" value="{{ profile.user.last_name }}"> 
+         <input class="textinput textInput form-control mb-2" value="{{ profile.last_name }}"> 
          {% csrf_token %}
          {{ form | crispy }}
          <label>Purchase details:</label>
