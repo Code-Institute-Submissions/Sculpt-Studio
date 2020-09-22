@@ -61,8 +61,8 @@ var form = document.getElementById("payment-form");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     card.update({ 'disabled': true });
-    $().attr('disabled', true)
-        // Complete payment when the submit button is clicked
+    $().attr('disabled', true);
+    // Complete payment when the submit button is clicked
     payWithCard(stripe, card, clientSecret);
 });
 
@@ -90,7 +90,6 @@ var payWithCard = function(stripe, card, clientSecret) {
             showError(result.error.message);
         } else {
             form.submit();
-            console.log(form)
         }
     });
 };
