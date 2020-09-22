@@ -87,5 +87,10 @@ nav .navbar-nav li a:hover {
 /*-toast style-*/
 
 .toast-message {
-    color: rgb(239, 64, 41) !important;
+    color: rgb(0, 0, 0) !important;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(252, 8, 0);
+    margin: 5x;
+    padding: 5px;
+    text-align: center;
 }
