@@ -43,9 +43,22 @@ The project aims to create a service through which Sculpt Studio owner can sell 
 
 Design goal is to provide a simplistic web site with that is simple to use, is easy to understand and provide a good quality feeling. Site has been purposely designed and minimally filled not to retract from the user experience and to enable filling the site goals. 
 
+### Color and Fonts
+
+Fonts : Noto Serif JP 
+
+Main color schema :
+Background : rgb(248,246,246)
+Font color 1 : rgb(239,64,41) 
+Font color 2 : rgb(51,18,118) 
+Font color 3 : rgb(0,0,0)
+
 <summary>
 
 ### CLICK TO VIEW WIREFRAMES
+
+For wireframes Balsamiq has been used, there have been changed done during building the site. Overall wireframes were follow 
+for the general desing.
 </summary>
 <details>
 
@@ -66,15 +79,8 @@ Design goal is to provide a simplistic web site with that is simple to use, is e
 <img src="Sculpt Studio Wireframes/Purchase phone.png">
 <img src="Sculpt Studio Wireframes/Purchase.png">
 
+</details>
+
+## Features 
 
 
-
-
-
-Fonts : Noto Serif JP
-Main color schema : 
-
-Background : rgb(248,246,246)
-Font color 1 : rgb(239,64,41)
-Font color 2 : rgb(51,18,118)
-Font color 3 : rgb(0,0,0)
