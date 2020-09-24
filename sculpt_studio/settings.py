@@ -81,7 +81,7 @@ AUTHENTICATION_BACKENDS = [
 
 ]
 
-SITE_ID = 1 #required together with 'django.contrib.sites'
+SITE_ID = 2 #required together with 'django.contrib.sites'
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 

@@ -1,4 +1,4 @@
 {% load account %}
 {% load i18n %}
 {% user_display user as name %}
-{% blocktrans %}Welcome {{name}}, you are now logged in!.{% endblocktrans %}
+{% blocktrans %}Welcome {{name}}, you are now logged in!{% endblocktrans %}
