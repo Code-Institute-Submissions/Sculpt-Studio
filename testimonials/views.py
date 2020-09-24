@@ -3,7 +3,7 @@ from .forms import AddTestimonialsForm
 from .models import Testimonials
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from user_profile.models import Profile
+from django.contrib.auth.models import User
 
 def testimonials(request):
     """
@@ -21,13 +21,13 @@ def testimonials(request):
 @login_required
 def add_testimonials(request):
     '''form for user to add testimonials'''
-    user = get_object_or_404(Profile, user=request.user)
+    user = get_object_or_404(User, username=request.user)
     if request.method == 'POST':
         form = AddTestimonialsForm(request.POST, instance=user)
         if form.is_valid:
             form.save()
             messages.success(request, 'Your review has been succesfully stored')
-            form = AddTestimonialsForm(instance=user)
+            form = AddTestimonialsForm()
             return redirect(reverse('testimonials'))
     else:
         form = AddTestimonialsForm()
@@ -35,7 +35,6 @@ def add_testimonials(request):
     context = {
         'form': form
     }
-
     return render(request, 'testimonials/add_testimonials.html', context) 
 
 
