@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from .webhook import webhook
+from .webhooks import webhook
 
 urlpatterns = [
     path('', views.purchase_checkout, name='purchase_checkout'),

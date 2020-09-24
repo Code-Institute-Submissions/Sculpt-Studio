@@ -2,12 +2,12 @@ from django.http import HttpResponse
 from django.conf import settings
 from purchase.webhook_handler import StripeWebHookHandler
 import stripe
-from django.views.decorators.csrf import csrt_excempt
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
 
 @require_POST
-@csrt_excempt
+@csrf_exempt
 def webhook(request):
     """
     Listen to webhooks 
