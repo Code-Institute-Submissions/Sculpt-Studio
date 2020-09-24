@@ -55,12 +55,18 @@ Font color 3 : rgb(0,0,0)
 
 <summary>
 
-### CLICK TO VIEW WIREFRAMES
+### CLICK TO VIEW WIREFRAMES AND DATABASE DIAGRAM
 
 For wireframes Balsamiq has been used, there have been changed done during building the site. Overall wireframes were follow 
-for the general desing.
+for the general desing. 
+
+Design of Database was done using QuickDBD. 
+
 </summary>
 <details>
+
+#### Wireframes: 
+
 
 <img src="Sculpt Studio Wireframes/About phone.png">
 <img src="Sculpt Studio Wireframes/About.png">
@@ -78,6 +84,11 @@ for the general desing.
 <img src="Sculpt Studio Wireframes/Programs phone.png">
 <img src="Sculpt Studio Wireframes/Purchase phone.png">
 <img src="Sculpt Studio Wireframes/Purchase.png">
+
+#### Database Diagram: 
+
+
+<img src="DB Diagram.png">
 
 </details>
 
