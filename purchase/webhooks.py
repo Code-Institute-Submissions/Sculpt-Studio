@@ -30,21 +30,23 @@ def webhook(request):
         # Invalid signature
         return HttpResponse(status=400)
     except Exception as e:
-        return HttpResponse(contetn=e, status=400)
+        return HttpResponse(content=e, status=400)
+
+
 
     # Handle the event
-    if event.type == 'payment_intent.succeeded':
-        payment_intent = event.data.object # contains a stripe.PaymentIntent
-        print('PaymentIntent was successful!')
-    elif event.type == 'payment_method.attached':
-        payment_method = event.data.object # contains a stripe.PaymentMethod
-        print('PaymentMethod was attached to a Customer!')
-    # ... handle other event types
-    else:
-        # Unexpected event type
-        return HttpResponse(status=400)
 
-    
+    handler = StripeWebHookHandler(request)
 
-    print('Success!')
-    return HttpResponse(status=200)
+    event_map = {
+        'payment_intent.succeeded': handler.handle_intent_succeeded,
+        'payment_intent.payment_failed': handler.handle_intent_failed
+    }
+
+    event_type = event['type']
+
+    event_handler = event_map.get(event_type, handler.handle_event)
+ 
+    response = event_handler(event)
+    return response
+
