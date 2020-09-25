@@ -1,0 +1,2 @@
+<h1>Ooops...Something went wrong and page was not found!</h1>
+<p>Go back to homepage and try again by clicking <a href="{% url 'home' %}">here</a></p>
