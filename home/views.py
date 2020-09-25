@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -21,10 +22,11 @@ def server_error(request):
     """
     handle 500 error
     """
-    return(request, '500.html')
+    return render(request, '500.html')
 
-def not_found(request, exception):
+
+def page_not_found(request, exception):
     """
     handle 404 error
     """
-    return(request, '404.html')
+    return render(request, '404.html')

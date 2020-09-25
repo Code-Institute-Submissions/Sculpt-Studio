@@ -1,2 +1,8 @@
-<h1>Ooops...Something went wrong and page was not found!</h1>
-<p>Go back to homepage and try again by clicking <a href="{% url 'home' %}">here</a></p>
+{% extends 'base.html' %}
+<!doctype html>
+{% block content %}
+    <div class="row justify-content-center">
+        <h1>Ooops...Something went wrong and page could not be loaded!</h1>
+        <p>Go back to homepage and try again by clicking <a href="{% url 'home' %}">here</a></p>
+    </div>
+{% endblock %}
