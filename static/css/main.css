@@ -11,6 +11,10 @@ hr {
     margin-top: 0;
 }
 
+li a {
+    text-decoration: none;
+}
+
 body {
     background-color: rgb(248, 246, 246);
 }
