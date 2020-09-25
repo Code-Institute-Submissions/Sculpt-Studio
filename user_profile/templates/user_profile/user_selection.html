@@ -19,7 +19,7 @@
   {% else %}
   <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
   <a class="nav-item nav-link" href="{% url 'user_purchases' profile.id %}">My Purchases</a>
-  <a class="nav-item nav-link" href="{% url 'add_testimonials' %}">Leave a Review</a>
+  <a class="nav-item nav-link" href="{% url 'add_testimonial' %}">Leave a Review</a>
   <a class="nav-item nav-link" href="{% url 'book_meeting' profile.id %}">Book a Meeting</a>
   {% endif %}
 </nav>

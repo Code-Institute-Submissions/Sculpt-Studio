@@ -20,7 +20,7 @@
   {% else %}
   <a class="nav-item nav-link" href="{% url 'account' %}">My Profile</a>
   <a class="nav-item nav-link" href="{% url 'user_purchases' user.id %}">My Purchases</a>
-  <a class="nav-item nav-link" href="{% url 'add_testimonials' %}">Leave a Review</a>
+  <a class="nav-item nav-link" href="{% url 'add_testimonial' %}">Leave a Review</a>
   <a class="nav-item nav-link" href="{% url 'book_meeting' user.id %}">Book a Meeting</a>
   {% endif %}
 </nav>
@@ -28,7 +28,7 @@
 
 <div clas="row">
     <div class="col-8">
-        <form action="{% url 'add_testimonials' %}" method="POST">
+        <form action="{% url 'add_testimonial' %}" method="POST">
             {% csrf_token %}
             {{ form | crispy }}
             <a href="{% url 'account' %}" class="btn btn-dark">Back</a>

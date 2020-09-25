@@ -19,24 +19,24 @@ def testimonials(request):
 
 
 @login_required
-def add_testimonials(request):
+def add_testimonial(request):
     '''form for user to add testimonials'''
-    user = get_object_or_404(User, username=request.user)
     if request.method == 'POST':
-        form = AddTestimonialsForm(request.POST, instance=user)
-        if form.is_valid:
-            form.save()
-            messages.success(request, 'Your review has been succesfully stored')
-            form = AddTestimonialsForm()
+        form = AddTestimonialsForm(request.POST)
+        if form.is_valid():
+            testimonial = form.save(commit=False)
+            testimonial.user = request.user
+            testimonial.save()
+            messages.success(request, f'Your review has been succesfully stored')
             return redirect(reverse('testimonials'))
     else:
         form = AddTestimonialsForm()
-    
+
     context = {
         'form': form
     }
-    return render(request, 'testimonials/add_testimonials.html', context) 
 
+    return render(request, 'testimonials/add_testimonials.html', context) 
 
 @login_required
 def delete_testimonials(request, testimonial_id):
