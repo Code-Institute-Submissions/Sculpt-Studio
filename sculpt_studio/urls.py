@@ -29,3 +29,10 @@ urlpatterns = [
     path('purchase/', include('purchase.urls')),
     path('cart/', include('cart.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+#Error handlers:
+
+handler404 = 'home.views.not_found'
+handler500 = 'home.views.server_error'
