@@ -98,3 +98,26 @@ nav .navbar-nav li a:hover {
     padding: 5px;
     text-align: center;
 }
+
+
+/*-Payment loading icon-*/
+
+.payment-loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.5;
+}
+
+.load-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}
