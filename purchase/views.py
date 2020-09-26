@@ -99,8 +99,7 @@ def purchase_successful(request, order_number):
         purchase.save()
 
     messages.success(request, f'Thank you for your purchase!\
-                                You can view your detail order by checking your account.\
-                                Your order number is { order_number }.')
+                                You can view your order details by checking your account.')
 
 
     if 'cart' in request.session:

@@ -89,10 +89,10 @@
         </div>
     </nav>
 <hr>
+{% if messages %}
+{% for message in messages %}
 <div class="toast custom-toast row justify-content-center" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="col-4">
-        {% if messages %}
-        {% for message in messages %}
+    <div class="col-8">
         <div class="toast-header">
             <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -101,10 +101,10 @@
         <div class="toast-body">
             <p class="toast-message">{{ message }}</p>
         </div>
-        {% endfor %}
-        {% endif %}
     </div>
 </div>
+{% endfor %}
+{% endif %}
     
     {% block content %} 
     {% endblock %}
