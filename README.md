@@ -5,6 +5,25 @@
 
 This is my 4th milestone project for Code Institute, while being a school project i aim to eventually deploy this as a livesite. As the project for the school this is a MVP due to time restrictions.
 
+
+- [Welcome to Sculpt Studio](#welcome-to-sculpt-studio)
+  * [Project Goal](#project-goal)
+    + [User Stories to support Project Goal](#user-stories-to-support-project-goal)
+  * [Design](#design)
+    + [Color and Fonts](#color-and-fonts)
+    + [CLICK TO VIEW WIREFRAMES AND DATABASE DIAGRAM](#click-to-view-wireframes-and-database-diagram)
+      - [Wireframes:](#wireframes-)
+      - [Database Diagram:](#database-diagram-)
+  * [Features](#features)
+    + [For site user/client](#for-site-user-client)
+      - [Booking meeting:](#booking-meeting-)
+      - [Payment and Purchase:](#payment-and-purchase-)
+    + [For site owner](#for-site-owner)
+  * [Features left to implement in future releases](#features-left-to-implement-in-future-releases)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## Project Goal
 
 The project aims to create a service through which Sculpt Studio owner can sell her fitness programs and services, user can create account to keep track of purhcases and admin can add / change / remove programs. Site users and people who purhcase programs can book meetings with the trainer to get personal service.
@@ -97,4 +116,42 @@ Design of Database was done using QuickDBD.
 
 ## Features 
 
+### For site user/client
 
+Users are able to create profile to the site to login and get access to current and future functionalities. Currently logged in users are able to view their account, update details such as current weight and height that helps personal trainers to better prepare for user sessions. User who have an account created are also able to purchase fitness programs using credit card.
+Once users have purchase a program they will have purchase history available on their account, they can review the programs, also users that have a purchase made can be book a meeting with site trainer. Additionally all users, not only users with account created can access partners page through which they can access deals.
+
+#### Booking meeting: 
+
+To provide functionality to book meetings Calendly solution has been used. To test it is fine to create a purchase and after that book a meeting. 
+Note: No contact will be currently made if a meeting request is received by site owner.
+
+#### Payment and Purchase: 
+
+Users who have created a profile can purchase fitness programs from the site. To test payment functionalities a user account should be created and test card used.
+
+Test card to user:
+
+Nr: 4242 4242 4242 4242 
+Expiration: any future date
+CVV: any 3 digit number
+
+
+### For site owner
+
+
+Site owner and admin users have extended access on the site. When they are logged in they are able to add, edit and/or delete fitness programs. Logged in admin users can also add, edit and/or delete partner deals via their account, for the admin users additional information is available on the partner pages, currently that info is contact info for potential partners/deals. To make admin users work easier they are able to manage all users by logging in and going on their account. There they can deactivate users, add users as superusers and see details about users that would make it easier for them to do their work on the website without using Admin portal. Then of course in the admin portal users with superuser access have access to the entire site info, such as purchases, users, testimonials etc. 
+For testing purposes Admin user has been created: 
+User: newadmin
+password: kakapea1
+
+## Features left to implement in future releases
+
+A number of features have been cut from the current release due to time constraint. In the future, before the site will be made available for public use, the following features are considered to be implemented. However with the creation of business plan still in progress the features are not final.
+
+* Calendar function for admin/trainers so they can easily see upcoming bookings
+* Login functionality using social platforms such as Facebook, Google etc. 
+* Additional details to profile such as images, tracking of program validity, lost/gained weight
+* Meal plan functionality 
+* Chat function
+* Simple chat-bot 
