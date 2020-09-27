@@ -59,8 +59,6 @@ The project aims to create a service through which Sculpt Studio owner can sell 
 |   I want to be able to manage partners page                   |   I am not dependant on development team                                      |
 |                                                               |                                                                               |
 
-
-
 ## Design 
 
 Design goal is to provide a simplistic web site with that is simple to use, is easy to understand and provide a good quality feeling. Site has been purposely designed and minimally filled not to retract from the user experience and to enable filling the site goals. 
@@ -155,3 +153,131 @@ A number of features have been cut from the current release due to time constrai
 * Meal plan functionality 
 * Chat function
 * Simple chat-bot 
+
+<summary>
+
+## Testing
+
+All testing on this was done manually. Click details to see testing write up
+
+</summary>
+<details>
+
+### Responsivness: 
+
+Site was manually tested by using google developer tools to ensure responsivness. Mostly errors were found already during coding of the project and issues were solved at that stage. Site also tested by 4 volunteers on different devices and no major issues returned. Responsivness testing considered passed and good to enough to satisfy requirements for MVP / Project submition.
+
+### Testing of different pages:
+
+This section details testing done on different pages as different users.
+
+#### Homepage / Landing page 
+
+After landing on the site as a user who is not logged i tested links in the main content, navbar and footer on the page
+
+- As not logged in user options available in navbar: Home, About, Programs, Reviews, Partners, Login, Sign up --> Passed
+- As logged in user option available in navbar : Home, About, Programs, Reviews, Partners, Account, Log out --> Passed
+- "Learn more about us" link directs to About us page --> Passed
+- "Testimonials" link directs user to Reviews page --> Passed
+- "Get started" call to action button redirects to programs page --> Passed
+- "Social links" in the footer redirect respectively to each social media site --> Passed
+- Logo redirects to home page --> Passed
+- "home" redirects to home page --> Passed
+- "about"  redirects to about me page --> Passed 
+- "Programs" redirects to page where all programs are available --> Passed 
+- "reviews" redirects to reviews/testimonials page --> Passed 
+- "login" redirects to login page --> Passed 
+- "Sign up redirects to sign up page --> Passed
+
+
+
+#### About page
+
+About page should show picture of the person behind Sculpt Studio concept and have link to programs, link function tested.
+
+- "Checkout our programs" link redirects to programs page --> Passed
+
+#### Programs page
+
+Displays fitness programs available for purchase and provides different options depending on if you are logged in as admin or not logged in at all / logged in as site user. 
+
+As a not logged in/logged in as site user the following tests done:
+
+- "details" link redirects to programs details --> Passed
+- "Add to Cart" links (if logged in user) adds product to cart, redirects to cart page and updates cart in navbar with total cost --> Passed
+- "Add to Cart" links (if not logged in) transfers to sign in page, as user needs to be logged in for purchases --> Passed
+
+As Admin user: 
+
+Options available on the page change to back, edit, delete
+
+- "Back" redirects back to user profile --> Passed
+- "Edit" redirects to edit program form for updates --> Passed
+- "Delete" deletes selected program --> Passed
+
+#### Program details: 
+
+Depending on if logged in as admin or not logged in/logged in as user different page option displayed.
+
+As Admin: 
+
+- To get to program details page admin needs to edit details on programs page : this is a fault in design and has been fixed by adding a link to program details also for admin user in the programs page --> Passed / Corrected 
+- Links available for admin : Back, Edit, Delete --> Passed 
+- "Back" redirects to profile page --> Passed
+- "Edit" redirects to program form for updates --> Passed
+- "Delete" deletes selected program --> Passed 
+
+As user: 
+
+- Links available : Back, Add to Cart --> Passed 
+- "Back" redirects back to programs page
+- "Add to Cart" links (if logged in user) adds product to cart, redirects to cart page and updates cart in navbar with total cost --> Passed
+
+No logged in: 
+
+Sames options as user 
+
+- "Add to Cart" links (if not logged in) transfers to sign in page, as user needs to be logged in for purchases --> Passed
+
+#### Reviews page 
+
+Depending on if logged in as admin or not logged in/logged in as user different page option displayed.
+
+As Admin:
+
+- "Delete" allows to delete unsuitable reviews --> Passed
+
+As User: 
+
+No options, only possible to read reviews.
+
+
+#### Partners page
+
+Depending on if logged in as admin or not logged in/logged in as user different page option displayed.
+
+As user / Not logged in:
+
+- "Click here to shop" link redirects to homepage or respective partner --> Passed 
+
+As admin: 
+
+- "Edit" redirects to edit partner form --> Passed 
+- "Delete" allows to delete selected partner from database --> Passed
+- Information : as admin user additional information available about main contact at company in question --> Passed
+
+#### Shopping cart: 
+
+Shopping cart is where user is directed after choosing a program to purchase. 
+
+- Options available Continue Shopping, Proceed to Checkout --> Passed
+- "Continue Shopping" redirects back to programs page to be able to shop for other things --> Passed
+- "Proceed to Checkout" directs user to purhcase page for payment with credit card --> Passed 
+- If more than one program selected for purchase Total cost updates accordingly and both program display price, name and type--> Passed
+- User can remove one item at a time from shopping cart by clicking Trash bin--> Passed 
+- If user removes items total cost is updated accordingly , applies also for cart icon showing cost --> Passed
+
+#### Purchase page / payment page
+
+
+</details>
