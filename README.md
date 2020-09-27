@@ -1,3 +1,6 @@
+<img src="mockup.png">
+
+
 # Welcome to Sculpt Studio
 
 This is my 4th milestone project for Code Institute, while being a school project i aim to eventually deploy this as a livesite. As the project for the school this is a MVP due to time restrictions.
