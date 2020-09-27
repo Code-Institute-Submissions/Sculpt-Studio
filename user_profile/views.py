@@ -10,15 +10,23 @@ from django.db.models import Q
 
 @login_required
 def account(request):
-    """render my_profile.html and handle profile update """
+    """
+    render my_profile.html and handle profile for customers 
+    for admin purposes django User model is mainly used
+    """
     user_profile = get_object_or_404(Profile, user=request.user)
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=user_profile)
         if user_form.is_valid():
-            user_form.save()
-            messages.success(request, f'Profile has been updated!')
+            updated_profile_details=user_form.save()
+            user = User.objects.filter(profile=user_profile)
+            for user_details in user:
+                user_details.first_name = updated_profile_details.first_name
+                user_details.last_name = updated_profile_details.last_name
+                user_details.save()
+        messages.success(request, f'Profile has been updated!')
     else:
-        user_form = UserForm(instance=request.user)
+        user_form = UserForm(instance=user_profile)
 
     context = {
         'user_form': user_form
