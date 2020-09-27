@@ -10,37 +10,37 @@
 */
 
 
-var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1)
-var clientSecret = $('#id_client_secret').text().slice(1, -1)
+var stripePublicKey = $("#id_stripe_public_key").text().slice(1, -1);
+var clientSecret = $("#id_client_secret").text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
 
 var style = {
     base: {
-        color: '#000',
+        color: "#000",
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': {
-            color: '#aab7c4'
+        fontSmoothing: "antialiased",
+        fontSize: "16px",
+        "::placeholder": {
+            color: "#aab7c4"
         }
     },
     invalid: {
-        color: '#dc3545',
-        iconColor: '#dc3545'
+        color: "#dc3545",
+        iconColor: "#dc3545"
     }
 };
 
-var card = elements.create('card', { style: style });
-card.mount('#card-element');
+var card = elements.create("card", { style: style });
+card.mount("#card-element");
 
 
 // handle validation errors
 
 
-card.addEventListener('change', function(event) {
-    var errorDiv = document.getElementById('card-errors');
+card.addEventListener("change", function(event) {
+    var errorDiv = document.getElementById("card-errors");
     if (event.error) {
         var html = `
             <span class="icon" role="alert">
@@ -48,10 +48,10 @@ card.addEventListener('change', function(event) {
             </span>
             <span>${event.error.message}</span> `
         $(errorDiv).html(html)
-        card.update({ 'disabled': false });
-        $().attr('disabled', false)
+        card.update({ "disabled": false });
+        $().attr("disabled", false)
     } else {
-        errorDiv.textContent = '';
+        errorDiv.textContent = "";
     }
 })
 
@@ -60,11 +60,11 @@ card.addEventListener('change', function(event) {
 var form = document.getElementById("payment-form");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    card.update({ 'disabled': true });
-    $().attr('disabled', true);
-    $('#submit-btn').attr('disabled', true);
-    $('#payment-form').toggle();
-    $('.payment-loading').toggle();
+    card.update({ "disabled": true });
+    $().attr("disabled", true);
+    $("#submit-btn").attr("disabled", true);
+    $("#payment-form").toggle();
+    $(".payment-loading").toggle();
     // Complete payment when the submit button is clicked
     payWithCard(stripe, card, clientSecret);
 });
@@ -79,20 +79,20 @@ var payWithCard = function(stripe, card, clientSecret) {
         }
     }).then(function(result) {
         if (result.error) {
-            var errorDiv = document.getElementById('card-errors');
-            if (error) {
+            var errorDiv = document.getElementById("card-errors");
+            if (result.error) {
                 var html = `
                         <span class="icon" role="alert">
                             <i class="fas fa-exclamation-circle"></i>
                         </span>
                         <span>${error.message}</span> `
                 $(errorDiv).html(html)
-                card.update({ 'disabled': false });
-                $('#submit-btn').attr('disabled', false);
-                $('#payment-form').toggle();
-                $('.payment-loading').toggle();
+                card.update({ "disabled": false });
+                $("#submit-btn").attr("disabled", false);
+                $("#payment-form").toggle();
+                $(".payment-loading").toggle();
             } else {
-                errorDiv.textContent = '';
+                errorDiv.textContent = "";
             }
             showError(result.error.message);
         } else {
