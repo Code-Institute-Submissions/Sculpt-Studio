@@ -3,7 +3,13 @@
 
 # Welcome to Sculpt Studio
 
-This is my 4th milestone project for Code Institute, while being a school project i aim to eventually deploy this as a livesite. As the project for the school this is a MVP due to time restrictions.
+This is my 4th milestone project for Code Institute, while being a school project the aim of this project is to be developed into a fully functioning fitness site that can fulfil business plans of the creator/person behing the concept of Sculpt Studio. 
+
+### Visit live site: 
+
+https://sculpt-studio.herokuapp.com/
+
+
 
 - [Welcome to Sculpt Studio](#welcome-to-sculpt-studio)
   * [Project Goal](#project-goal)
