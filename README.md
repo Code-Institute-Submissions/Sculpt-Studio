@@ -187,7 +187,7 @@ After landing on the site as a user who is not logged i tested links in the main
 - "Programs" redirects to page where all programs are available --> Passed 
 - "reviews" redirects to reviews/testimonials page --> Passed 
 - "login" redirects to login page --> Passed 
-- "Sign up redirects to sign up page --> Passed
+- "Sign up redirects to sign up page --> Passed , signing up sends a confirmation email to provided email address --> Passed
 
 
 
@@ -277,7 +277,76 @@ Shopping cart is where user is directed after choosing a program to purchase.
 - User can remove one item at a time from shopping cart by clicking Trash bin--> Passed 
 - If user removes items total cost is updated accordingly , applies also for cart icon showing cost --> Passed
 
-#### Purchase page / payment page
+#### Purchase page / payment page and Purchase successful page
 
+Tested as a signed in user as not possible to purchase fitness programs without being logged in/having a user at our site. 
+
+- Tried to purchase without filling billing information : expected behaviour is that error is displayed --> Passed 
+- Tried to purcase insert invalid credit card number for purchase : expected behaviour is that error about invalid card number displayed --> Passe
+- Tried purchase without filling in name : expected behaviour would be to get an error --> Failed 
+  Even though this test failed it is not a critical failure as the purchase is still connected to users account and will be stored there. Due to time constraint and this not being a critical error decision is to move forward with the error and solve it at a later stage.
+- "Cancel" button brings user back to shopping cart page --> Passed
+- Successful purchase redirect user to Success page with a message that purchase successful. --> Passed
+- Purchase success page provides clear info to user that they can see purchase details on their account page --> Passed
+- "Visit your account link" - directs user to their account landing page where user details are available --> Passed
+
+
+#### User account 
+
+User account has been tested as three different users.
+1. Logged in user with a purchase connected to their account
+2. Logged in user without a purchase 
+3. Admin user 
+
+Testing as user with a purchase:
+
+- My profile page should show the user details that we have about logged in user and provide a possibility to update certain information --> Passed
+- User update form allows user to update name , lastname , Address , Country , Height , Weight and their Goal --> Passed
+- User update form updates all above mentioned details --> Passed 
+- User has a link to Update E-Mail Django Allauth form --> Passed 
+- User can add/remove email Re-send verification  or make an email primary --> Passed 
+  There was no back option if they do not wish to update email --> corrected 
+- My purchases nav link displayes users purchase history with Order Nr, Program, Type, Cost and Date/Time of purchase --> Passed
+- Leave a review link provides user with form to leave reviews about programs --> Passed 
+- If review added and user presses Post Review button where they can see the review --> Passed
+- Book a meeting link displays user with a calendar they can use to book meetings with trainer --> Passed
+
+
+Testing as a user without purchase: 
+
+Only scenarios where different behaviour expected was tested
+
+- User has no purchase history available due to no purchases --> Passed
+- User cannot access calendar/book meeting function due no purchases --> Passed
+
+
+Testing as Admin user: 
+
+Only scenarios where different behaviour expected was tested
+
+- Add program link provides user with a form to add more fitness programs --> Passed
+- Adding programs successful with above form --> Passed 
+- Edit programs ink provides user with a form to add more fitness programs --> Passed
+- Editing programs successful with above form --> Passed 
+- Add partners link provides user with a form to add more fitness programs --> Passed
+- Adding partners successful with above form --> Passed 
+- Add partners link provides user with a form to add more fitness programs --> Passed
+- Adding partners successful with above form --> Passed 
+- Edit partners link provides user with a form to add more fitness programs --> Passed
+- Editing partners successful with above form --> Passed 
+- User management provides admin user access to all users without needing to access admin page --> Passed
+- Admin user can user search function to search for users in database --> Passed
+- Admin user can update user name, email. Can deactivate users and provide either superuser or staff status --> Passed
+  Other functions to be done via Admin page. On account page only functions available are the ones considered to be frequently used
+- Admin can see info from user profile such as weight, height, goal to help prepare for meeting or in creating meal plan --> Passed
+
+
+#### Stripe Payment: 
+
+Stripe payment has been tested upwards of 30 times and the payment system functions as planned. There are improvements that need to be done to the payment flow that are left for future sprints/releases. Known error is that webhooks are not functioning and will be on top of the list for next release. No confirmation emails currently sent to user as it is a test account being used and not automated emails can be sent with test accounts.
+
+#### Summary: 
+
+Testing has shown that there are some minor issues with the site and there is room for improvement with some functionalities. However taking into consideration the scope of the page, the timeline and the need for a deployment of the site it has been, after careful consideration, been decided together with the site owner that there are no show-stoppers and and deployment can be made and project from testin perspective can be implemented. 
 
 </details>
