@@ -350,3 +350,85 @@ Stripe payment has been tested upwards of 30 times and the payment system functi
 Testing has shown that there are some minor issues with the site and there is room for improvement with some functionalities. However taking into consideration the scope of the page, the timeline and the need for a deployment of the site it has been, after careful consideration, been decided together with the site owner that there are no show-stoppers and and deployment can be made and project from testin perspective can be implemented. 
 
 </details>
+
+
+## Deployment
+
+This section explains how to deploy this site locally. 
+
+The site was created with VSCode.
+
+#### Cloning this site
+
+Site source code can be cloned from : https://github.com/teppm/Sculpt-Studio
+Use input --> git clone https://github.com/teppm/Sculpt-Studio
+Ensure that you have Python3, PIP and Git installed. If not do that before cloning the project.
+Once source code has been cloned install all required extensions from requirements.txt with input pip -r requirements.txt
+
+#### Setting environment variables
+
+1. Create env.py in the root directory of the project.
+2. create gitignore file and add env.py to said file.
+3. import os in env.py
+4. set variable with os.environ['SECRET_KEY'] = 'secret key goes here' 
+5. make variables available in your settings.py with following: 
+        from os import path
+
+        if path.exists("env.py"):
+            import env 
+6. With this done you are able to safely store your variables that need to be safe in env.py without risking these being commited to github.
+
+#### Deploying this site on heroku
+
+1. Log in to heroku with my existing username and password. Create one if needed.
+2. From dashboard.heroku.com clicked 'new'
+3. Chose 'Creat New App'
+4. Chose a name for the app that has not been used before (heroku will inform if the app name is okay to use or not)
+5. In VScode (as my choice of IDE) create Procfile
+6. Ensured the spelling of Procfile to be exactly the way it is intended
+7. Ensured that Encoding for Procfile is UTF-8 , due to having had errors with deployment when it has been UTF-16
+8. In heroku go to settings
+9. On the settings page click 'Reveal Config VARS'
+10. Fill in needed config vars
+11. For my own deployment the following config vars were needed:
+    AWS_ACCESS_KEY_ID - you can get this from AWS by setting up a free account
+    AWS_SECRET_ACCESS_KEY - you can get this from AWS by setting up a free account
+    DATABASE_URL - connection to data url, i used postgresql
+    EMAIL_HOST_PASSWORD -  you get this when setting up email handling with gmail
+    EMAIL_HOST_USER - you get this when setting up email handling with gmail
+    SECRET_KEY - i used python secret key generator
+    STRIPE_ENDPOINT_SECRET - you can get this from stripe by settings up an account and following stripe instructions
+    STRIPE_PUBLIC_KEY - you can get this from stripe by settings up an account and following stripe instructions
+    STRIPE_SECRET_KEY - you can get this from stripe by settings up an account and following stripe instructions
+    USE_AWD - this is needed if you deploy your static files on AWS 
+12. Under deploy link you can connect your project from git with heroku by following instructions 
+13. Deploy site 
+14. If deployed successfully use Open App to access you launched page.
+
+
+## Technologies, tools and libraries used 
+
+VSCode - my preferred IDE for the project
+GitHub - for version control
+Heroku - for hosting
+SQlite3 - as a development database
+PostgreSQL - deployed database
+Django - as the main framework for the site
+AWS S3 - Storing static files on
+Balsamiq - for wireframes
+HTML5
+CSS3
+Bootstrap
+JavaScript 
+jQuery
+Google Fonts
+Python
+Gunicorn
+Psycopg2
+boto3
+Stripe - used for payments 
+Codacy - to check code quality 
+QuickDBD - to plan and scetch my database
+
+
+## Credit and Acknowledgment
