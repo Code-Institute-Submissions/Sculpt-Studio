@@ -406,28 +406,29 @@ Once source code has been cloned install all required extensions from requiremen
 
 ## Technologies, tools and libraries used 
 
-VSCode - my preferred IDE for the project
-GitHub - for version control
-Heroku - for hosting
-SQlite3 - as a development database
-PostgreSQL - deployed database
-Django - as the main framework for the site
-AWS S3 - Storing static files on
-Balsamiq - for wireframes
-HTML5
-CSS3
-Bootstrap
-JavaScript 
-jQuery
-Google Fonts
-Python
-Gunicorn
-Psycopg2
-boto3
-Stripe - used for payments 
-Codacy - to check code quality 
-QuickDBD - to plan and scetch my database
-http://ecotrust-canada.github.io/markdown-toc/ - for table of content in my README
+VSCode - my preferred IDE for the project; 
+GitHub - for version control; 
+Heroku - for hosting; 
+SQlite3 - as a development database; 
+PostgreSQL - deployed database; 
+Django - as the main framework for the site; 
+AWS S3 - Storing static files on; 
+Balsamiq - for wireframes; 
+HTML5; 
+CSS3; 
+Bootstrap; 
+JavaScript; 
+jQuery; 
+Google Fonts; 
+Python; 
+Gunicorn; 
+Psycopg2; 
+boto3; 
+Stripe - used for payments; 
+Codacy - to check code quality;  
+QuickDBD - to plan and scetch my database; 
+http://ecotrust-canada.github.io/markdown-toc/ - for table of content in my README: 
+FontAwesome; 
 
 
 ## Credit and Acknowledgment
