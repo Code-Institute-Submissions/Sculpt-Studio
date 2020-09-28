@@ -53,6 +53,7 @@
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button class="btn btn-success" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+                <a class="btn btn-primary" href="{% url 'account' %}">Back</a>
             </form>
       </div>
 </div>
