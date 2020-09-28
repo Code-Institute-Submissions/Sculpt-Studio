@@ -5,7 +5,6 @@
 
 This is my 4th milestone project for Code Institute, while being a school project i aim to eventually deploy this as a livesite. As the project for the school this is a MVP due to time restrictions.
 
-
 - [Welcome to Sculpt Studio](#welcome-to-sculpt-studio)
   * [Project Goal](#project-goal)
     + [User Stories to support Project Goal](#user-stories-to-support-project-goal)
@@ -20,6 +19,26 @@ This is my 4th milestone project for Code Institute, while being a school projec
       - [Payment and Purchase:](#payment-and-purchase-)
     + [For site owner](#for-site-owner)
   * [Features left to implement in future releases](#features-left-to-implement-in-future-releases)
+  * [Testing](#testing)
+      - [Responsivness:](#responsivness-)
+      - [Testing of different pages:](#testing-of-different-pages-)
+      - [Homepage / Landing page](#homepage---landing-page)
+      - [About page](#about-page)
+      - [Programs page](#programs-page)
+      - [Program details:](#program-details-)
+      - [Reviews page](#reviews-page)
+      - [Partners page](#partners-page)
+      - [Shopping cart:](#shopping-cart-)
+      - [Purchase page / payment page and Purchase successful page](#purchase-page---payment-page-and-purchase-successful-page)
+      - [User account](#user-account)
+      - [Stripe Payment:](#stripe-payment-)
+      - [Summary:](#summary-)
+  * [Deployment](#deployment)
+      - [Cloning this site](#cloning-this-site)
+      - [Setting environment variables](#setting-environment-variables)
+      - [Deploying this site on heroku](#deploying-this-site-on-heroku)
+  * [Technologies, tools and libraries used](#technologies--tools-and-libraries-used)
+  * [Credit and Acknowledgment](#credit-and-acknowledgment)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -429,6 +448,7 @@ boto3
 Stripe - used for payments 
 Codacy - to check code quality 
 QuickDBD - to plan and scetch my database
+http://ecotrust-canada.github.io/markdown-toc/ - for table of content in my README
 
 
 ## Credit and Acknowledgment
