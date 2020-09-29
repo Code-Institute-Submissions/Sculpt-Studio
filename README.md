@@ -432,3 +432,10 @@ FontAwesome;
 
 
 ## Credit and Acknowledgment
+
+- Unsplash - for homepage image. 
+- Stack overflow - help in solving issues during coding
+- CodeInstitute Tutor support - for help when i got stuck
+- CodeInstitute slack channels where i have been able to search for errors and how people have solved different issues
+- Friends and Family for helping with testing of the site and providing their inputs
+- CodeInstitute mentor Anthony Ngene for his continued guidance and support
