@@ -5,7 +5,7 @@ from purchase.models import Checkout
 from django.contrib import messages
 from .models import Profile
 from django.db.models import Q
-from django.contrib.auth import User
+from django.contrib.auth.models import User
 
 
 @login_required
