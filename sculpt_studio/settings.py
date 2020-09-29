@@ -84,10 +84,10 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 2 #required together with 'django.contrib.sites'
 
 if 'DEVELOPMENT' in os.environ:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'admin@SculptStudio.com'
 else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
@@ -95,7 +95,7 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True #email required to register
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory' #mandatory to verify your email address
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True #need to input email twice to make sure no typos 
@@ -133,8 +133,8 @@ WSGI_APPLICATION = 'sculpt_studio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# for  development comment out ''DATABASE_URL in os...'' below 
-# and uncomment DATABASES sqlite3 
+# for  development comment out ''DATABASE_URL in os...'' below
+# and uncomment DATABASES sqlite3
 
 
 if 'DATABASE_URL' in os.environ:
@@ -148,7 +148,6 @@ if 'DATABASE_URL' in os.environ:
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-    
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -193,14 +192,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
-    # cache control 
+    # cache control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000'
     }
     #Bucket configuration
     AWS_STORAGE_BUCKET_NAME = 'sculpt-studio'
-    AWS_S3_REGION_NAME = 'eu-north-1' 
+    AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
@@ -215,11 +214,11 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4' 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
-# Stripe payment 
+# Stripe payment
 
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')

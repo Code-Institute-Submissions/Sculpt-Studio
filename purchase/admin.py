@@ -9,7 +9,7 @@ class CheckoutLineItemsAdmin(admin.TabularInline):
 
 class CheckoutAdmin(admin.ModelAdmin):
     inlines = (CheckoutLineItemsAdmin,)
-    list_display = ( 
+    list_display = (
                 'user',
                 'order_number',
                 'email',

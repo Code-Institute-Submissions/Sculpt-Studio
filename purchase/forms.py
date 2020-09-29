@@ -10,4 +10,3 @@ class CheckoutForm(forms.ModelForm):
         fields = ('email', 'billing_address', 'billing_postcode',
                   'billing_city', 'billing_country')
 
-        

@@ -9,7 +9,7 @@ def testimonials(request):
     return all testimonial for template
     """
     testimonials = Testimonials.objects.all()
-    
+
     context = {
         'testimonials': testimonials
     }
@@ -35,7 +35,7 @@ def add_testimonial(request):
         'form': form
     }
 
-    return render(request, 'testimonials/add_testimonials.html', context) 
+    return render(request, 'testimonials/add_testimonials.html', context)
 
 @login_required
 def delete_testimonials(request, testimonial_id):

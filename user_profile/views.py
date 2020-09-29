@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserForm, UserManagementForm
 from purchase.models import Checkout
 from django.contrib import messages
-from django.contrib.auth.models import User
 from .models import Profile
 from django.db.models import Q
 
@@ -11,7 +10,7 @@ from django.db.models import Q
 @login_required
 def account(request):
     """
-    render my_profile.html and handle profile for customers 
+    render my_profile.html and handle profile for customers
     for admin purposes django User model is mainly used
     """
     user_profile = get_object_or_404(Profile, user=request.user)

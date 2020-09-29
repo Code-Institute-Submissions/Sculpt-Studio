@@ -10,7 +10,7 @@ from django.views.decorators.http import require_POST
 @csrf_exempt
 def webhook(request):
     """
-    Listen to webhooks 
+    Listen to webhooks
     """
     stripe.api_key = settings.STRIPE_SECRET_KEY
     endpoint_secret = settings.STRIPE_ENDPOINT_KEY
@@ -46,7 +46,7 @@ def webhook(request):
     event_type = event['type']
 
     event_handler = event_map.get(event_type, handler.handle_event)
- 
+
     response = event_handler(event)
     return response
 

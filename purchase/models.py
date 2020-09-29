@@ -2,7 +2,6 @@ from django.db import models
 from programs.models import Programs
 from user_profile.models import Profile
 from django_countries.fields import CountryField
-from django.utils import timezone
 from django.db.models import Sum
 import uuid
 
@@ -20,7 +19,7 @@ class Checkout(models.Model):
     billing_postcode = models.CharField(max_length=15)
     billing_city = models.CharField(max_length=32)
     billing_country = CountryField()
-    
+
 
     def _generate_order_number(self):
         '''
@@ -33,7 +32,7 @@ class Checkout(models.Model):
         '''
         update total cost
         '''
-        self.total_cost = self.lineitems.aggregate(Sum('line_item_cost'))['line_item_cost__sum'] or 0 
+        self.total_cost = self.lineitems.aggregate(Sum('line_item_cost'))['line_item_cost__sum'] or 0
         self.save()
 
 
@@ -49,7 +48,7 @@ class Checkout(models.Model):
 
 class CheckoutLineItem(models.Model):
     '''
-    create line item for purchae for details 
+    create line item for purchae for details
     of ordered programs, cost etc.
     '''
     purchase = models.ForeignKey(Checkout, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')

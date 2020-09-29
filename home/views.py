@@ -15,7 +15,7 @@ def about_me(request):
     return render(request, 'home/about-me.html')
 
 
-#custom error views 
+#custom error views
 
 def server_error(request):
     """

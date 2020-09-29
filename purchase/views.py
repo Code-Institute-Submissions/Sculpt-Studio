@@ -5,7 +5,6 @@ from .forms import CheckoutForm
 from programs.models import Programs
 from user_profile.models import Profile
 from .models import Checkout, CheckoutLineItem
-from django.contrib.auth.models import User
 import stripe
 import json
 from django.conf import settings
@@ -15,7 +14,7 @@ from cart.contexts import cart_content
 @login_required
 def purchase_checkout(request):
     '''
-    return purchase checkout page and handle 
+    return purchase checkout page and handle
     taking payment info / creating payment intent with stripe
     '''
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -39,7 +38,7 @@ def purchase_checkout(request):
                         )
                     checkout_line_item.save()
             return redirect(reverse('purchase_successful', args=[order.order_number]))
-        else: 
+        else:
             messages.error(request, f'An error occured!')
     else:
         cart_now = cart_content(request)
@@ -114,13 +113,13 @@ def purchase_successful(request, order_number):
 
 def user_purchases(request, user_id):
     '''
-    render user purchase history in 
-    account section 
+    render user purchase history in
+    account section
     '''
 
     profile = get_object_or_404(Profile, user_id=request.user)
     purchase = Checkout.objects.filter(user=profile)
- 
+
 
     context = {
         'profile': profile,
