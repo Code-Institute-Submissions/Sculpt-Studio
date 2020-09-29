@@ -4,7 +4,7 @@ from .models import Programs
 # Register your models here.
 
 class ProgramAdmin(admin.ModelAdmin):
-    list_display = ( 
+    list_display = (
                 'name',
                 'type',
                 'description',

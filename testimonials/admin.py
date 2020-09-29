@@ -3,7 +3,7 @@ from .models import Testimonials
 
 
 class TestimonialsAdmin(admin.ModelAdmin):
-    list_display = ( 
+    list_display = (
                 'user',
                 'review',
                 'score',

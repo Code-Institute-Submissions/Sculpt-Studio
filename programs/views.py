@@ -74,7 +74,7 @@ def delete_program(request, program_id):
         return redirect(reverse('home'))
 
 
-    programs.delete() 
+    programs.delete()
 
     return redirect(reverse('programs'))
 

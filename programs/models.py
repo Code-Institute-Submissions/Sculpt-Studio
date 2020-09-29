@@ -7,7 +7,7 @@ class Programs(models.Model):
     model for different programs on sale
     """
 
-    class Meta: 
+    class Meta:
         verbose_name_plural = 'Programs'
 
     name = models.CharField(max_length=100)

@@ -3,7 +3,7 @@ from .models import Partners
 
 
 class PartnersAdmin(admin.ModelAdmin):
-    list_display = ( 
+    list_display = (
         'name',
         'summary',
         'main_contact',

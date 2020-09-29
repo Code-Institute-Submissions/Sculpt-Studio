@@ -1,8 +1,6 @@
-from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from .models import Partners
 from .forms import PartnerForm
 
@@ -14,7 +12,6 @@ def partners(request):
     context = {
         'partners': partners
     }
-        
     
     return render(request, 'partners/partners.html', context)
 
@@ -46,7 +43,7 @@ def add_partners(request):
 @login_required
 def edit_partners(request, partner_id):
     """
-    renders edit page for partners for admin user 
+    renders edit page for partners for admin user
     to be able to edit / delete partner details
     """
     partners = get_object_or_404(Partners, pk=partner_id)
@@ -87,6 +84,6 @@ def delete_partners(request, partner_id):
         return redirect(reverse('account'))
 
 
-    partners.delete() 
+    partners.delete()
 
     return redirect(reverse('partners'))

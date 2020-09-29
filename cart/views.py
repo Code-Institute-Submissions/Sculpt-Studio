@@ -27,7 +27,7 @@ def add_to_cart(request, program_id):
 
     if id in list(cart.keys()):
         messages.error(request, f'{program.name} is already added to cart!')
-    else: 
+    else:
         cart[program_id] = program_count
         messages.success(request, f'{program.name} succesfully added to cart!')
 
@@ -40,7 +40,7 @@ def add_to_cart(request, program_id):
 @login_required
 def remove_from_cart(request, program_id):
     '''
-    removing added program from cart 
+    removing added program from cart
     '''
     program = get_object_or_404(Programs, pk=program_id)
     cart = request.session.get('cart', {})

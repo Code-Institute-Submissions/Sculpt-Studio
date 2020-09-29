@@ -8,7 +8,6 @@ from .models import Checkout, CheckoutLineItem
 from django.contrib.auth.models import User
 import stripe
 import json
-from django.http import HttpResponse
 from django.conf import settings
 from cart.contexts import cart_content
 
