@@ -5,7 +5,7 @@
     https://stripe.com/docs/stripe-js
 
     for below code i have used codeinstitute boutique ado videos to guide me through the process of setting up stripe
-    while trying to keep it my own project specific
+    while trying to keep it my own project specific. Additionally Stripe code is used from stripe.com
 
 */
 

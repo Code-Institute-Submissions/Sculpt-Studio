@@ -5,6 +5,7 @@ import stripe
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
+#Stripe.com and help from codeinstitute boutique ado videos used for below
 
 @require_POST
 @csrf_exempt
